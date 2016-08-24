@@ -1,0 +1,53 @@
+{
+    "name": "kdn/yii2-json-editor",
+    "description": "JSON editor widget (josdejong/jsoneditor) for Yii 2.",
+    "keywords": [
+        "yii2",
+        "extension",
+        "widget",
+        "editor",
+        "json",
+        "jsoneditor",
+        "viewer",
+        "formatter"
+    ],
+    "homepage": "https://github.com/dmitry-kulikov/yii2-json-editor",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dmitry Kulikov",
+            "email": "kulikovdn@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "2.*",
+        "npm-asset/jsoneditor": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "phpunit/php-invoker": "1.*"
+    },
+    "suggest": {
+        "ext-runkit": "this extension is needed to run all tests, otherwise some tests will be skipped"
+    },
+    "autoload": {
+        "psr-4": {
+            "kdn\\yii2\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "kdn\\yii2\\": "tests/"
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "bower-asset-library": "vendor/bower",
+            "npm-asset-library": "vendor/npm"
+        }
+    }
+}
