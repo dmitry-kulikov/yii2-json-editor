@@ -163,13 +163,11 @@ class JsonEditor extends InputWidget
                 $userFunction = '';
             }
             $jsOnModeChange = "function(newMode, oldMode) {";
-            if (!empty($this->collapseAll)) {
-                $jsOnModeChange .= "if (" . Json::htmlEncode($this->collapseAll) . ".indexOf(newMode) != -1) " .
-                    "{{$editorName}.collapseAll();}";
-            }
-            if (!empty($this->expandAll)) {
-                $jsOnModeChange .= "if (" . Json::htmlEncode($this->expandAll) . ".indexOf(newMode) != -1) " .
-                    "{{$editorName}.expandAll();}";
+            foreach (['collapseAll', 'expandAll'] as $property) {
+                if (!empty($this->$property)) {
+                    $jsOnModeChange .= "if (" . Json::htmlEncode($this->$property) . ".indexOf(newMode) != -1) " .
+                        "{{$editorName}.$property();}";
+                }
             }
             $jsOnModeChange .= "$userFunction}";
             $this->clientOptions['onModeChange'] = new JsExpression($jsOnModeChange);
