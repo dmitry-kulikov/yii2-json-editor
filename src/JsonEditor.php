@@ -18,15 +18,15 @@ use yii\widgets\InputWidget;
 class JsonEditor extends InputWidget
 {
     /**
-     * @var array JSON editor options
-     * @see https://github.com/josdejong/jsoneditor
+     * @var array options which will be passed to JSON editor
+     * @see https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#configuration-options
      */
     public $clientOptions = [];
 
     /**
      * @var string[] list of JSON editor modes for which all fields should be collapsed automatically;
      * allowed modes 'tree', 'view', and 'form'
-     * @see https://github.com/josdejong/jsoneditor
+     * @see https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#jsoneditorcollapseall
      */
     public $collapseAll = [];
 
@@ -44,26 +44,29 @@ class JsonEditor extends InputWidget
     /**
      * @var string[] list of JSON editor modes for which all fields should be expanded automatically;
      * allowed modes 'tree', 'view', and 'form'
-     * @see https://github.com/josdejong/jsoneditor
+     * @see https://github.com/josdejong/jsoneditor/blob/master/docs/api.md#jsoneditorexpandall
      */
     public $expandAll = [];
 
     /**
      * @var null|boolean whether to use minimalist version of JSON editor;
-     * note that "minimalist" is not the same as "minimized"
-     * @see https://github.com/josdejong/jsoneditor
+     * note that "minimalist" is not the same as "minimized";
+     * if property is not set then extension will try to determine automatically whether full version is needed,
+     * if full version is not required then minimalist version will be used;
+     * you can explicitly set this property to true or false if automatic detection does not fit for you application
+     * @see https://github.com/josdejong/jsoneditor/blob/master/dist/which%20files%20do%20I%20need.md
      */
     public $minimalist;
 
     /**
      * @var string default JSON editor mode
      */
-    protected $mode = 'tree';
+    private $mode = 'tree';
 
     /**
      * @var string[] available JSON editor modes
      */
-    protected $modes = [];
+    private $modes = [];
 
     /**
      * @inheritdoc
@@ -89,7 +92,8 @@ class JsonEditor extends InputWidget
         foreach (['mode', 'modes'] as $parameterName) {
             $this->$parameterName = ArrayHelper::getValue($this->clientOptions, $parameterName, $this->$parameterName);
         }
-        $this->clientOptions['mode'] = $this->mode; // make sure that "mode" is specified, otherwise JS error can occur
+        // make sure that "mode" is specified, otherwise JavaScript error can occur in some situations
+        $this->clientOptions['mode'] = $this->mode;
         if (!isset($this->minimalist)) {
             $this->minimalist = $this->mode != 'code' && !in_array('code', $this->modes);
         }
@@ -158,13 +162,17 @@ class JsonEditor extends InputWidget
             } else {
                 $userFunction = '';
             }
-            $this->clientOptions['onModeChange'] = new JsExpression(
-                "function(newMode, oldMode) {" .
-                "if (" . Json::htmlEncode($this->collapseAll) . ".indexOf(newMode) != -1) " .
-                "{{$editorName}.collapseAll();} " .
-                "if (" . Json::htmlEncode($this->expandAll) . ".indexOf(newMode) != -1) " .
-                "{{$editorName}.expandAll();}$userFunction}"
-            );
+            $jsOnModeChange = "function(newMode, oldMode) {";
+            if (!empty($this->collapseAll)) {
+                $jsOnModeChange .= "if (" . Json::htmlEncode($this->collapseAll) . ".indexOf(newMode) != -1) " .
+                    "{{$editorName}.collapseAll();}";
+            }
+            if (!empty($this->expandAll)) {
+                $jsOnModeChange .= "if (" . Json::htmlEncode($this->expandAll) . ".indexOf(newMode) != -1) " .
+                    "{{$editorName}.expandAll();}";
+            }
+            $jsOnModeChange .= "$userFunction}";
+            $this->clientOptions['onModeChange'] = new JsExpression($jsOnModeChange);
         }
 
         if ($this->hasModel()) {
@@ -172,15 +180,15 @@ class JsonEditor extends InputWidget
         } else {
             $value = $this->value;
         }
-        $js = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
+        $jsCode = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
             Json::htmlEncode($this->clientOptions) . ", $value);\n" .
             "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";
         if (in_array($this->mode, $this->collapseAll)) {
-            $js .= "\n$editorName.collapseAll();";
+            $jsCode .= "\n$editorName.collapseAll();";
         }
         if (in_array($this->mode, $this->expandAll)) {
-            $js .= "\n$editorName.expandAll();";
+            $jsCode .= "\n$editorName.expandAll();";
         }
-        $view->registerJs($js);
+        $view->registerJs($jsCode);
     }
 }

@@ -23,7 +23,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     /**
      * Clean up after test.
-     * By default the application created with [[mockApplication]] will be destroyed.
+     * By default the application created with [[mockWebApplication]] will be destroyed.
      */
     protected function tearDown()
     {
@@ -45,8 +45,10 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
                     'id' => 'test-app',
                     'basePath' => __DIR__,
                     'components' => [
+                        'assetManager' => [
+                            'linkAssets' => true,
+                        ],
                         'request' => [
-                            'cookieValidationKey' => 'wefJDF8sfdsfSDefwqdxj9oq',
                             'scriptFile' => static::getTestsRuntimePath() . '/index.php',
                             'scriptUrl' => '/index.php',
                         ],
@@ -82,6 +84,30 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
     protected static function destroyApplication()
     {
         Yii::$app = null;
+    }
+
+    /**
+     * Asserts that the contents of a string is equal to the contents of a HTML file.
+     * @param string $methodName name of test method
+     * @param string $actualString
+     * @param string $message
+     * @param boolean $canonicalize
+     * @param boolean $ignoreCase
+     */
+    public static function assertStringEqualsHtmlFile(
+        $methodName,
+        $actualString,
+        $message = '',
+        $canonicalize = false,
+        $ignoreCase = false
+    ) {
+        static::assertStringEqualsFile(
+            __DIR__ . "/expected/$methodName.html",
+            $actualString,
+            $message,
+            $canonicalize,
+            $ignoreCase
+        );
     }
 
     /**

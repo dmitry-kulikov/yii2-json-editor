@@ -8,7 +8,7 @@ use yii\web\AssetBundle;
  * Class JsonEditorAsset.
  * @package kdn\yii2\assets
  */
-class JsonEditorAsset extends AssetBundle
+abstract class JsonEditorAsset extends AssetBundle
 {
     /**
      * @var array list of CSS files which this bundle will use for development environment

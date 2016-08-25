@@ -11,7 +11,6 @@ use yii\widgets\ActiveForm;
 /**
  * Class JsonEditorTest.
  * @package kdn\yii2
- * @covers kdn\yii2\assets\JsonEditorAsset
  */
 class JsonEditorTest extends TestCase
 {
@@ -26,25 +25,29 @@ class JsonEditorTest extends TestCase
      * @param string $css
      * @param string $minimalistJs
      * @param string $fullJs
-     * @covers       kdn\yii2\JsonEditor
+     * @covers       \kdn\yii2\assets\JsonEditorAsset
+     * @covers       \kdn\yii2\JsonEditor
      * @dataProvider assetProvider
      * @small
      */
     public function testAsset($css, $minimalistJs, $fullJs)
     {
-        JsonEditor::widget(['name' => 'data']);
-        $bundles = Yii::$app->assetManager->bundles;
-        $assetName = JsonEditorMinimalistAsset::className();
-        $this->assertArrayHasKey($assetName, $bundles);
-        $this->assertEquals([$css], $bundles[$assetName]->css);
-        $this->assertEquals([$minimalistJs], $bundles[$assetName]->js);
+        $testWidgetAsset = function ($config, $assetName, $css, $js) {
+            JsonEditor::widget($config);
+            $bundles = Yii::$app->assetManager->bundles;
+            $this->assertArrayHasKey($assetName, $bundles);
+            $this->assertEquals([$css], $bundles[$assetName]->css);
+            $this->assertEquals([$js], $bundles[$assetName]->js);
+        };
 
-        JsonEditor::widget(['name' => 'data', 'clientOptions' => ['mode' => 'code']]);
-        $bundles = Yii::$app->assetManager->bundles;
-        $assetName = JsonEditorFullAsset::className();
-        $this->assertArrayHasKey($assetName, $bundles);
-        $this->assertEquals([$css], $bundles[$assetName]->css);
-        $this->assertEquals([$fullJs], $bundles[$assetName]->js);
+        $fullAssetName = JsonEditorFullAsset::className();
+        $minimalistAssetName = JsonEditorMinimalistAsset::className();
+
+        $testWidgetAsset(['name' => 'data'], $minimalistAssetName, $css, $minimalistJs);
+        static::mockWebApplication();
+        $testWidgetAsset(['name' => 'data', 'clientOptions' => ['mode' => 'code']], $fullAssetName, $css, $fullJs);
+        static::mockWebApplication();
+        $testWidgetAsset(['name' => 'data', 'clientOptions' => ['modes' => ['code']]], $fullAssetName, $css, $fullJs);
     }
 
     public static function assetProductionProvider()
@@ -58,7 +61,8 @@ class JsonEditorTest extends TestCase
      * @param string $css
      * @param string $minimalistJs
      * @param string $fullJs
-     * @covers       kdn\yii2\JsonEditor
+     * @covers       \kdn\yii2\assets\JsonEditorAsset
+     * @covers       \kdn\yii2\JsonEditor
      * @dataProvider assetProductionProvider
      * @small
      */
@@ -76,7 +80,8 @@ class JsonEditorTest extends TestCase
     }
 
     /**
-     * @covers kdn\yii2\JsonEditor
+     * @covers \kdn\yii2\JsonEditor
+     * @uses   \kdn\yii2\assets\JsonEditorAsset
      * @small
      */
     public function testEditorWidget()
@@ -97,16 +102,14 @@ class JsonEditorTest extends TestCase
                 'options' => ['id' => 'data'],
             ]
         );
-        $expectedHtml = '<input type="hidden" id="data" name="data" value="{}" ' .
-            'data-json-editor-name="dataJsonEditor_729ee6af">' .
-            '<div id="data-json-editor" class="container" style="height: 250px;"></div>';
-        $this->assertEquals($expectedHtml, $html);
+        $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
     }
 
     /**
-     * @covers kdn\yii2\JsonEditor
+     * @covers \kdn\yii2\JsonEditor
+     * @uses   \kdn\yii2\assets\JsonEditorAsset
      * @small
      */
     public function testEditorActiveWidgetAndDefaults()
@@ -118,16 +121,7 @@ class JsonEditorTest extends TestCase
                 ActiveForm::end();
             }
         )['output'];
-        $expectedHtml = '<form id="data-form" action="test" method="post">' .
-            '<div class="form-group field-modelmock-data">' . "\n" .
-            '<label class="control-label" for="modelmock-data">Data</label>' . "\n" .
-            '<input type="hidden" id="modelmock-data" name="ModelMock[data]" ' .
-            'value="{}" data-json-editor-name="modelmockDataJsonEditor_cb242086">' .
-            '<div id="modelmock-data-json-editor" style="height: 250px;"></div>' . "\n\n" .
-            '<div class="help-block"></div>' . "\n" .
-            '</div>' .
-            '</form>';
-        $this->assertEquals($expectedHtml, $html);
+        $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
     }
