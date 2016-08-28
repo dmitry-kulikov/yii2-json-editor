@@ -119,7 +119,7 @@ class JsonEditor extends InputWidget
     protected function initClientOptions()
     {
         $options = $this->clientOptions;
-        $jsExpressionOptions = ['onChange', 'onEditable', 'onError', 'onModeChange'];
+        $jsExpressionOptions = ['ace', 'ajv', 'onChange', 'onEditable', 'onError', 'onModeChange', 'schema'];
         foreach ($options as $key => $value) {
             if (!$value instanceof JsExpression && in_array($key, $jsExpressionOptions)) {
                 $options[$key] = new JsExpression($value);
