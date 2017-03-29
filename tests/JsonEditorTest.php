@@ -134,7 +134,11 @@ class JsonEditorTest extends TestCase
     public function testWidgetWithScriptInJson()
     {
         $html = JsonEditor::widget(
-            ['name' => 'data', 'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}']
+            [
+                'id' => 'data',
+                'name' => 'data',
+                'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}',
+            ]
         );
         $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
