@@ -125,4 +125,19 @@ class JsonEditorTest extends TestCase
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
     }
+
+    /**
+     * @covers \kdn\yii2\JsonEditor
+     * @uses   \kdn\yii2\assets\JsonEditorAsset
+     * @small
+     */
+    public function testWidgetWithScriptInJson()
+    {
+        $html = JsonEditor::widget(
+            ['name' => 'data', 'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}']
+        );
+        $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
+        $jsCodeBlock = reset(Yii::$app->view->js);
+        $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
+    }
 }

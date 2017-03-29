@@ -178,6 +178,7 @@ class JsonEditor extends InputWidget
         } else {
             $value = $this->value;
         }
+        $value = Json::htmlEncode(Json::decode($value, false));
         $jsCode = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
             Json::htmlEncode($this->clientOptions) . ", $value);\n" .
             "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";

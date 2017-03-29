@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+1.0.3 March 29, 2017
+--------------------
+
+- Bug #2: Widget doesn't work if JSON contains `<script>` tag.
+
 1.0.2 August 27, 2016
 ---------------------
 
