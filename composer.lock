@@ -39,16 +39,16 @@
         },
         {
             "name": "bower-asset/jquery.inputmask",
-            "version": "3.3.4",
+            "version": "3.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/RobinHerbots/Inputmask.git",
-                "reference": "8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2"
+                "reference": "9835731cb78cac749734d94a1cb5bd70da4d3b10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2",
-                "reference": "8a882bc471ba4077c4f8ecbe3d9d61c7558f3ef2",
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/9835731cb78cac749734d94a1cb5bd70da4d3b10",
+                "reference": "9835731cb78cac749734d94a1cb5bd70da4d3b10",
                 "shasum": ""
             },
             "require": {
@@ -57,30 +57,36 @@
             "type": "bower-asset-library",
             "extra": {
                 "bower-asset-main": [
-                    "./dist/inputmask/inputmask.dependencyLib",
-                    "./dist/inputmask/inputmask",
-                    "./dist/inputmask/inputmask.extensions",
-                    "./dist/inputmask/inputmask.date.extensions",
-                    "./dist/inputmask/inputmask.numeric.extensions",
-                    "./dist/inputmask/inputmask.phone.extensions",
-                    "./dist/inputmask/inputmask.regex.extensions",
-                    "./dist/inputmask/jquery.inputmask"
+                    "./dist/inputmask/inputmask.js",
+                    "./dist/inputmask/inputmask.extensions.js",
+                    "./dist/inputmask/inputmask.date.extensions.js",
+                    "./dist/inputmask/inputmask.numeric.extensions.js",
+                    "./dist/inputmask/inputmask.phone.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.js",
+                    "./dist/inputmask/global/document.js",
+                    "./dist/inputmask/global/window.js",
+                    "./dist/inputmask/phone-codes/phone.js",
+                    "./dist/inputmask/phone-codes/phone-be.js",
+                    "./dist/inputmask/phone-codes/phone-nl.js",
+                    "./dist/inputmask/phone-codes/phone-ru.js",
+                    "./dist/inputmask/phone-codes/phone-uk.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jqlite.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jquery.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
+                    "./dist/inputmask/bindings/inputmask.binding.js"
                 ],
                 "bower-asset-ignore": [
                     "**/*",
                     "!dist/*",
                     "!dist/inputmask/*",
                     "!dist/min/*",
-                    "!dist/min/inputmask/*",
-                    "!extra/bindings/*",
-                    "!extra/dependencyLibs/*",
-                    "!extra/phone-codes/*"
+                    "!dist/min/inputmask/*"
                 ]
             },
             "license": [
                 "http://opensource.org/licenses/mit-license.php"
             ],
-            "description": "jquery.inputmask is a jquery plugin which create an input mask.",
+            "description": "Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.",
             "keywords": [
                 "form",
                 "input",
@@ -214,16 +220,16 @@
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.9.2",
+            "version": "v4.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4"
+                "reference": "95e1bae3182efc0f3422896a3236e991049dac69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
-                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/95e1bae3182efc0f3422896a3236e991049dac69",
+                "reference": "95e1bae3182efc0f3422896a3236e991049dac69",
                 "shasum": ""
             },
             "require": {
@@ -257,16 +263,16 @@
             "keywords": [
                 "html"
             ],
-            "time": "2017-03-13T06:30:53+00:00"
+            "time": "2017-06-03T02:28:16+00:00"
         },
         {
             "name": "npm-asset/ajv",
-            "version": "3.8.8",
+            "version": "4.11.6",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/ajv/-/ajv-3.8.8.tgz",
+                "url": "https://registry.npmjs.org/ajv/-/ajv-4.11.6.tgz",
                 "reference": null,
-                "shasum": "c4e70ec0c590442625291b51af7fc6a46df852a8"
+                "shasum": "947e93049790942b2a2d60a8289b28924d39f987"
             },
             "require": {
                 "npm-asset/co": ">=4.6.0,<5.0.0",
@@ -275,29 +281,33 @@
             "require-dev": {
                 "npm-asset/bluebird": ">=3.1.5,<4.0.0",
                 "npm-asset/brfs": ">=1.4.3,<2.0.0",
-                "npm-asset/browserify": ">=13.0.0,<14.0.0",
-                "npm-asset/chai": ">=3.0.0,<4.0.0",
+                "npm-asset/browserify": ">=14.1.0,<15.0.0",
+                "npm-asset/chai": ">=3.5.0,<4.0.0",
                 "npm-asset/coveralls": ">=2.11.4,<3.0.0",
+                "npm-asset/del-cli": ">=0.2.1,<0.3.0",
                 "npm-asset/dot": ">=1.0.3,<2.0.0",
-                "npm-asset/eslint": ">=2.5.1,<3.0.0",
+                "npm-asset/eslint": ">=3.2.2,<4.0.0",
+                "npm-asset/gh-pages-generator": ">=0.2.0,<0.3.0",
                 "npm-asset/glob": ">=7.0.0,<8.0.0",
-                "npm-asset/istanbul": ">=0.4.2,<0.5.0",
+                "npm-asset/if-node-version": ">=1.0.0,<2.0.0",
                 "npm-asset/js-beautify": ">=1.5.6,<2.0.0",
                 "npm-asset/jshint": ">=2.8.0,<3.0.0",
                 "npm-asset/json-schema-test": ">=1.1.1,<2.0.0",
-                "npm-asset/karma": ">=0.13.3,<0.14.0",
-                "npm-asset/karma-chrome-launcher": ">=0.2.0,<0.3.0",
-                "npm-asset/karma-mocha": ">=0.2.0,<0.3.0",
+                "npm-asset/karma": ">=1.0.0,<2.0.0",
+                "npm-asset/karma-chrome-launcher": ">=2.0.0,<3.0.0",
+                "npm-asset/karma-mocha": ">=1.1.1,<2.0.0",
                 "npm-asset/karma-phantomjs-launcher": ">=1.0.0,<2.0.0",
-                "npm-asset/karma-sauce-launcher": ">=0.3.0,<0.4.0",
-                "npm-asset/mocha": ">=2.2.5,<3.0.0",
-                "npm-asset/nodent": ">=2.3.13,<3.0.0",
+                "npm-asset/karma-sauce-launcher": ">=1.1.0,<2.0.0",
+                "npm-asset/mocha": ">=3.0.0,<4.0.0",
+                "npm-asset/nodent": ">=3.0.17,<4.0.0",
+                "npm-asset/nyc": ">=10.0.0,<11.0.0",
                 "npm-asset/phantomjs-prebuilt": ">=2.1.4,<3.0.0",
                 "npm-asset/pre-commit": ">=1.1.1,<2.0.0",
-                "npm-asset/regenerator": ">=0.8.42,<0.9.0",
+                "npm-asset/regenerator": "0.9.7",
                 "npm-asset/require-globify": ">=1.3.0,<2.0.0",
+                "npm-asset/typescript": ">=2.0.3,<3.0.0",
                 "npm-asset/uglify-js": ">=2.6.1,<3.0.0",
-                "npm-asset/watch": ">=0.17.1,<0.18.0"
+                "npm-asset/watch": ">=1.0.0,<2.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -307,6 +317,7 @@
                 "npm-asset-files": [
                     "lib/",
                     "dist/",
+                    "scripts/",
                     "LICENSE",
                     ".tonic_example.js"
                 ],
@@ -318,19 +329,21 @@
                 },
                 "npm-asset-scripts": {
                     "jshint": "jshint lib/*.js lib/**/*.js --exclude lib/dotjs/**/*",
-                    "eslint": "eslint lib/*.js lib/compile/*.js",
+                    "eslint": "if-node-version \">=4\" eslint lib/*.js lib/compile/*.js spec scripts",
                     "test-spec": "mocha spec/*.spec.js -R spec",
                     "test-fast": "AJV_FAST_TEST=true npm run test-spec",
                     "test-debug": "mocha spec/*.spec.js --debug-brk -R spec",
-                    "test-cov": "istanbul cover -x '**/spec/**' node_modules/mocha/bin/_mocha -- spec/*.spec.js -R spec",
-                    "bundle": "./scripts/bundle . Ajv pure_getters",
-                    "bundle-regenerator": "./scripts/bundle regenerator",
-                    "bundle-nodent": "./scripts/bundle nodent",
-                    "bundle-all": "npm run bundle && npm run bundle-regenerator && npm run bundle-nodent",
-                    "bundle-beautify": "./scripts/bundle js-beautify",
-                    "build": "node scripts/compile-dots.js",
-                    "test-browser": "npm run bundle-all && scripts/prepare-tests && karma start --single-run --browsers PhantomJS",
-                    "test": "npm run jshint && npm run eslint && npm run build && npm run test-cov && npm run test-browser",
+                    "test-cov": "nyc npm run test-spec",
+                    "test-ts": "tsc --target ES5 --noImplicitAny lib/ajv.d.ts",
+                    "bundle": "node ./scripts/bundle.js . Ajv pure_getters",
+                    "bundle-regenerator": "node ./scripts/bundle.js regenerator",
+                    "bundle-nodent": "node ./scripts/bundle.js nodent",
+                    "bundle-all": "del-cli dist && npm run bundle && npm run bundle-regenerator && npm run bundle-nodent",
+                    "bundle-beautify": "node ./scripts/bundle.js js-beautify",
+                    "build": "del-cli lib/dotjs/*.js && node scripts/compile-dots.js",
+                    "test-karma": "karma start --single-run --browsers PhantomJS",
+                    "test-browser": "del-cli .browser && npm run bundle-all && scripts/prepare-tests && npm run test-karma",
+                    "test": "npm run jshint && npm run eslint && npm run test-ts && npm run build && npm run test-cov && if-node-version 4 npm run test-browser",
                     "prepublish": "npm run build && npm run bundle-all",
                     "watch": "watch 'npm run build' ./lib/dot"
                 }
@@ -358,12 +371,12 @@
         },
         {
             "name": "npm-asset/brace",
-            "version": "0.8.0",
+            "version": "0.10.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/brace/-/brace-0.8.0.tgz",
+                "url": "https://registry.npmjs.org/brace/-/brace-0.10.0.tgz",
                 "reference": null,
-                "shasum": "e826c6d5054cae5f607ad7b1c81236dd2cf01978"
+                "shasum": "edef4eb9b0928ba1ee5f717ffc157749a6dd5d76"
             },
             "require": {
                 "npm-asset/w3c-blob": "0.0.1"
@@ -387,7 +400,7 @@
                     "url": "git://github.com/thlorenz/brace.git"
                 },
                 "npm-asset-scripts": {
-                    "update": "(cd build && node ./update)",
+                    "update": "(cd build && node ./update && node ./update-ts)",
                     "test": "browserify test/*.js > test/bundle.js --debug && opener test/index.html"
                 }
             },
@@ -563,28 +576,28 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "5.5.11",
+            "version": "5.7.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.5.11.tgz",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.7.0.tgz",
                 "reference": null,
-                "shasum": "1e06d4f09e42189ee63891e2435d091a9bd0017a"
+                "shasum": "a44545c8ae60d948189295fdf26eb90e754b8eef"
             },
             "require": {
-                "npm-asset/ajv": "3.8.8",
-                "npm-asset/brace": "0.8.0",
+                "npm-asset/ajv": "4.11.6",
+                "npm-asset/brace": "0.10.0",
                 "npm-asset/javascript-natural-sort": "0.7.1"
             },
             "require-dev": {
                 "npm-asset/gulp": "3.9.1",
-                "npm-asset/gulp-clean-css": "2.0.5",
-                "npm-asset/gulp-concat-css": "2.2.0",
-                "npm-asset/gulp-shell": "0.5.2",
-                "npm-asset/gulp-util": "3.0.7",
+                "npm-asset/gulp-clean-css": "3.0.4",
+                "npm-asset/gulp-concat-css": "2.3.0",
+                "npm-asset/gulp-shell": "0.6.3",
+                "npm-asset/gulp-util": "3.0.8",
                 "npm-asset/json-loader": "0.5.4",
                 "npm-asset/mkdirp": "0.5.1",
-                "npm-asset/mocha": "2.4.5",
-                "npm-asset/uglify-js": "2.6.2",
+                "npm-asset/mocha": "3.2.0",
+                "npm-asset/uglify-js": "2.8.22",
                 "npm-asset/webpack": "1.12.14"
             },
             "type": "npm-asset-library",
@@ -702,21 +715,21 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.11.2",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ee996adec1dfd7babb67bd0c604f5bd6425fe5ab"
+                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ee996adec1dfd7babb67bd0c604f5bd6425fe5ab",
-                "reference": "ee996adec1dfd7babb67bd0c604f5bd6425fe5ab",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/70acbecc75cb26b6cd66d16be0b06e4b73db190d",
+                "reference": "70acbecc75cb26b6cd66d16be0b06e4b73db190d",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/jquery": "2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
-                "bower-asset/jquery.inputmask": "~3.2.2 | ~3.3.3",
+                "bower-asset/jquery.inputmask": "~3.2.2 | ~3.3.5",
                 "bower-asset/punycode": "1.3.*",
                 "bower-asset/yii2-pjax": "~2.0.1",
                 "cebe/markdown": "~1.0.0 | ~1.1.0",
@@ -798,7 +811,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2017-02-08T09:04:32+00:00"
+            "time": "2017-06-05T14:33:41+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1603,23 +1616,23 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "1.4.1",
+            "version": "1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e"
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/13edfd8706462032c2f52b4b862974dd46b71c9e",
-                "reference": "13edfd8706462032c2f52b4b862974dd46b71c9e",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/7f066a26a962dbe58ddea9f72a4e82874a3975a4",
+                "reference": "7f066a26a962dbe58ddea9f72a4e82874a3975a4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": "^5.3.3 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.8"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0"
             },
             "type": "library",
             "extra": {
@@ -1651,7 +1664,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08T07:14:41+00:00"
+            "time": "2017-05-22T07:24:03+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -1911,16 +1924,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.2.6",
+            "version": "v3.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a"
+                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/093e416ad096355149e265ea2e4cc1f9ee40ab1a",
-                "reference": "093e416ad096355149e265ea2e4cc1f9ee40ab1a",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/9752a30000a8ca9f4b34b5227d15d0101b96b063",
+                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063",
                 "shasum": ""
             },
             "require": {
@@ -1935,7 +1948,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.2-dev"
+                    "dev-master": "3.3-dev"
                 }
             },
             "autoload": {
@@ -1962,7 +1975,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-03-07T16:47:02+00:00"
+            "time": "2017-06-02T22:05:06+00:00"
         },
         {
             "name": "webmozart/assert",
