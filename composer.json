@@ -34,6 +34,18 @@
     "suggest": {
         "ext-runkit": "this extension is needed to run all tests, otherwise some tests will be skipped"
     },
+    "config": {
+        "fxp-asset": {
+            "installer-paths": {
+                "bower-asset-library": "vendor/bower",
+                "npm-asset-library": "vendor/npm"
+            },
+            "vcs-driver-options": {
+                "github-no-api": true
+            },
+            "pattern-skip-version": "(-build|-patch)"
+        }
+    },
     "autoload": {
         "psr-4": {
             "kdn\\yii2\\": "src/"
@@ -42,12 +54,6 @@
     "autoload-dev": {
         "psr-4": {
             "kdn\\yii2\\": "tests/"
-        }
-    },
-    "extra": {
-        "asset-installer-paths": {
-            "bower-asset-library": "vendor/bower",
-            "npm-asset-library": "vendor/npm"
         }
     }
 }
