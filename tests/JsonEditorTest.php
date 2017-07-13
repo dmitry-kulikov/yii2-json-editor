@@ -28,7 +28,7 @@ class JsonEditorTest extends TestCase
      * @covers       \kdn\yii2\assets\JsonEditorAsset
      * @covers       \kdn\yii2\JsonEditor
      * @dataProvider assetProvider
-     * @small
+     * @medium
      */
     public function testAsset($css, $minimalistJs, $fullJs)
     {
@@ -64,7 +64,7 @@ class JsonEditorTest extends TestCase
      * @covers       \kdn\yii2\assets\JsonEditorAsset
      * @covers       \kdn\yii2\JsonEditor
      * @dataProvider assetProductionProvider
-     * @small
+     * @medium
      */
     public function testAssetProduction($css, $minimalistJs, $fullJs)
     {
@@ -82,7 +82,7 @@ class JsonEditorTest extends TestCase
     /**
      * @covers \kdn\yii2\JsonEditor
      * @uses   \kdn\yii2\assets\JsonEditorAsset
-     * @small
+     * @medium
      */
     public function testEditorWidget()
     {
@@ -110,7 +110,7 @@ class JsonEditorTest extends TestCase
     /**
      * @covers \kdn\yii2\JsonEditor
      * @uses   \kdn\yii2\assets\JsonEditorAsset
-     * @small
+     * @medium
      */
     public function testEditorActiveWidgetAndDefaults()
     {
@@ -129,7 +129,7 @@ class JsonEditorTest extends TestCase
     /**
      * @covers \kdn\yii2\JsonEditor
      * @uses   \kdn\yii2\assets\JsonEditorAsset
-     * @small
+     * @medium
      */
     public function testWidgetWithScriptInJson()
     {

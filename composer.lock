@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "12260d7bb7448fefc6e35d92fb35b1c0",
+    "content-hash": "4f599d97bcec736c7b2b37744e7e4d99",
     "packages": [
         {
             "name": "bower-asset/jquery",
@@ -18,28 +18,83 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/c0185ab7c75aab88762c5aae780b9d83b80eda72",
                 "reference": "c0185ab7c75aab88762c5aae780b9d83b80eda72",
-                "shasum": null
+                "shasum": ""
             },
-            "type": "bower-asset"
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/jquery.js",
+                "bower-asset-ignore": [
+                    "package.json"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "browser",
+                "javascript",
+                "jquery",
+                "library"
+            ]
         },
         {
             "name": "bower-asset/jquery.inputmask",
             "version": "3.3.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
                 "reference": "9835731cb78cac749734d94a1cb5bd70da4d3b10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/9835731cb78cac749734d94a1cb5bd70da4d3b10",
+                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/9835731cb78cac749734d94a1cb5bd70da4d3b10",
                 "reference": "9835731cb78cac749734d94a1cb5bd70da4d3b10",
-                "shasum": null
+                "shasum": ""
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
             },
-            "type": "bower-asset"
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./dist/inputmask/inputmask.js",
+                    "./dist/inputmask/inputmask.extensions.js",
+                    "./dist/inputmask/inputmask.date.extensions.js",
+                    "./dist/inputmask/inputmask.numeric.extensions.js",
+                    "./dist/inputmask/inputmask.phone.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.js",
+                    "./dist/inputmask/global/document.js",
+                    "./dist/inputmask/global/window.js",
+                    "./dist/inputmask/phone-codes/phone.js",
+                    "./dist/inputmask/phone-codes/phone-be.js",
+                    "./dist/inputmask/phone-codes/phone-nl.js",
+                    "./dist/inputmask/phone-codes/phone-ru.js",
+                    "./dist/inputmask/phone-codes/phone-uk.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jqlite.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jquery.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
+                    "./dist/inputmask/bindings/inputmask.binding.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/*",
+                    "!dist/*",
+                    "!dist/inputmask/*",
+                    "!dist/min/*",
+                    "!dist/min/inputmask/*"
+                ]
+            },
+            "license": [
+                "http://opensource.org/licenses/mit-license.php"
+            ],
+            "description": "Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.",
+            "keywords": [
+                "form",
+                "input",
+                "inputmask",
+                "jquery",
+                "mask",
+                "plugins"
+            ]
         },
         {
             "name": "bower-asset/punycode",
@@ -53,9 +108,21 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
-                "shasum": null
+                "shasum": ""
             },
-            "type": "bower-asset"
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "punycode.js",
+                "bower-asset-ignore": [
+                    "coverage",
+                    "tests",
+                    ".*",
+                    "component.json",
+                    "Gruntfile.js",
+                    "node_modules",
+                    "package.json"
+                ]
+            }
         },
         {
             "name": "bower-asset/yii2-pjax",
@@ -69,12 +136,27 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/yiisoft/jquery-pjax/zipball/60728da6ade5879e807a49ce59ef9a72039b8978",
                 "reference": "60728da6ade5879e807a49ce59ef9a72039b8978",
-                "shasum": null
+                "shasum": ""
             },
             "require": {
                 "bower-asset/jquery": ">=1.8"
             },
-            "type": "bower-asset"
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./jquery.pjax.js",
+                "bower-asset-ignore": [
+                    ".travis.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "CONTRIBUTING.md",
+                    "vendor/",
+                    "script/",
+                    "test/"
+                ]
+            },
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "cebe/markdown",
@@ -184,32 +266,516 @@
             "time": "2017-06-03T02:28:16+00:00"
         },
         {
-            "name": "npm-asset/brace",
-            "version": "0.7.0",
+            "name": "npm-asset/ajv",
+            "version": "5.2.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/brace/-/brace-0.7.0.tgz",
+                "url": "https://registry.npmjs.org/ajv/-/ajv-5.2.0.tgz",
                 "reference": null,
-                "shasum": null
+                "shasum": "c1735024c5da2ef75cc190713073d44f098bf486"
+            },
+            "require": {
+                "npm-asset/co": ">=4.6.0,<5.0.0",
+                "npm-asset/fast-deep-equal": ">=0.1.0,<0.2.0",
+                "npm-asset/json-schema-traverse": ">=0.3.0,<0.4.0",
+                "npm-asset/json-stable-stringify": ">=1.0.1,<2.0.0"
+            },
+            "require-dev": {
+                "npm-asset/ajv-async": ">=0.1.0,<0.2.0",
+                "npm-asset/bluebird": ">=3.1.5,<4.0.0",
+                "npm-asset/brfs": ">=1.4.3,<2.0.0",
+                "npm-asset/browserify": ">=14.1.0,<15.0.0",
+                "npm-asset/chai": ">=4.0.1,<5.0.0",
+                "npm-asset/coveralls": ">=2.11.4,<3.0.0",
+                "npm-asset/del-cli": ">=0.2.1,<0.3.0",
+                "npm-asset/dot": ">=1.0.3,<2.0.0",
+                "npm-asset/eslint": ">=3.2.2,<4.0.0",
+                "npm-asset/gh-pages-generator": ">=0.2.0,<0.3.0",
+                "npm-asset/glob": ">=7.0.0,<8.0.0",
+                "npm-asset/if-node-version": ">=1.0.0,<2.0.0",
+                "npm-asset/js-beautify": ">=1.5.6,<2.0.0",
+                "npm-asset/jshint": ">=2.9.4,<3.0.0",
+                "npm-asset/json-schema-test": ">=1.3.0,<2.0.0",
+                "npm-asset/karma": ">=1.0.0,<2.0.0",
+                "npm-asset/karma-chrome-launcher": ">=2.0.0,<3.0.0",
+                "npm-asset/karma-mocha": ">=1.1.1,<2.0.0",
+                "npm-asset/karma-phantomjs-launcher": ">=1.0.0,<2.0.0",
+                "npm-asset/karma-sauce-launcher": ">=1.1.0,<2.0.0",
+                "npm-asset/mocha": ">=3.0.0,<4.0.0",
+                "npm-asset/nodent": ">=3.0.17,<4.0.0",
+                "npm-asset/nyc": ">=11.0.2,<12.0.0",
+                "npm-asset/phantomjs-prebuilt": ">=2.1.4,<3.0.0",
+                "npm-asset/pre-commit": ">=1.1.1,<2.0.0",
+                "npm-asset/regenerator": "0.9.7",
+                "npm-asset/require-globify": ">=1.3.0,<2.0.0",
+                "npm-asset/typescript": ">=2.0.3,<3.0.0",
+                "npm-asset/uglify-js": ">=3.0.8,<4.0.0",
+                "npm-asset/watch": ">=1.0.0,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/epoberezkin/ajv/issues"
+                },
+                "npm-asset-files": [
+                    "lib/",
+                    "dist/",
+                    "scripts/",
+                    "LICENSE",
+                    ".tonic_example.js"
+                ],
+                "npm-asset-main": "lib/ajv.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/epoberezkin/ajv.git"
+                },
+                "npm-asset-scripts": {
+                    "eslint": "if-node-version \">=4\" eslint lib/*.js lib/compile/*.js spec scripts",
+                    "jshint": "jshint lib/*.js lib/**/*.js --exclude lib/dotjs/**/*",
+                    "test-spec": "mocha spec/*.spec.js -R spec $(if-node-version 7 echo --harmony-async-await)",
+                    "test-fast": "AJV_FAST_TEST=true npm run test-spec",
+                    "test-debug": "mocha spec/*.spec.js --debug-brk -R spec",
+                    "test-cov": "nyc npm run test-spec",
+                    "test-ts": "tsc --target ES5 --noImplicitAny lib/ajv.d.ts",
+                    "bundle": "node ./scripts/bundle.js . Ajv pure_getters",
+                    "bundle-regenerator": "node ./scripts/bundle.js regenerator",
+                    "bundle-nodent": "node ./scripts/bundle.js nodent",
+                    "bundle-all": "del-cli dist && npm run bundle && npm run bundle-regenerator && npm run bundle-nodent",
+                    "bundle-beautify": "node ./scripts/bundle.js js-beautify",
+                    "build": "del-cli lib/dotjs/*.js && node scripts/compile-dots.js",
+                    "test-karma": "karma start --single-run --browsers PhantomJS",
+                    "test-browser": "del-cli .browser && npm run bundle-all && scripts/prepare-tests && npm run test-karma",
+                    "test": "npm run jshint && npm run eslint && npm run test-ts && npm run build && npm run test-cov && if-node-version 4 npm run test-browser",
+                    "prepublish": "npm run build && npm run bundle-all",
+                    "watch": "watch 'npm run build' ./lib/dot"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeny Poberezkin"
+                }
+            ],
+            "description": "Another JSON Schema Validator",
+            "homepage": "https://github.com/epoberezkin/ajv",
+            "keywords": [
+                "JSON",
+                "json-schema",
+                "json-schema-validation",
+                "json-schema-validator",
+                "jsonschema",
+                "schema",
+                "validation",
+                "validator"
+            ]
+        },
+        {
+            "name": "npm-asset/brace",
+            "version": "0.10.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/brace/-/brace-0.10.0.tgz",
+                "reference": null,
+                "shasum": "edef4eb9b0928ba1ee5f717ffc157749a6dd5d76"
             },
             "require": {
                 "npm-asset/w3c-blob": "0.0.1"
             },
-            "type": "npm-asset"
+            "require-dev": {
+                "npm-asset/browserify": "~4.2.0",
+                "npm-asset/opener": "~1.3.0",
+                "npm-asset/shelljs": "~0.2.6",
+                "npm-asset/tape": "~4.0.0",
+                "npm-asset/uglify-js": "~2.2.5"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/thlorenz/brace/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/thlorenz/brace.git"
+                },
+                "npm-asset-scripts": {
+                    "update": "(cd build && node ./update && node ./update-ts)",
+                    "test": "browserify test/*.js > test/bundle.js --debug && opener test/index.html"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thorsten Lorenz",
+                    "email": "thlorenz@gmx.de",
+                    "url": "http://thlorenz.com"
+                }
+            ],
+            "description": "browserify compatible version of the ace editor.",
+            "homepage": "https://github.com/thlorenz/brace",
+            "keywords": [
+                "ace",
+                "browser",
+                "browserify",
+                "bundle",
+                "editor",
+                "inline",
+                "package"
+            ]
+        },
+        {
+            "name": "npm-asset/co",
+            "version": "4.6.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
+                "reference": null,
+                "shasum": "6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
+            },
+            "require-dev": {
+                "npm-asset/browserify": ">=10.0.0,<11.0.0",
+                "npm-asset/istanbul-harmony": "*",
+                "npm-asset/mocha": ">=2.0.0,<3.0.0",
+                "npm-asset/mz": ">=1.0.2,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/tj/co/issues"
+                },
+                "npm-asset-files": [
+                    "index.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/tj/co.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "mocha --harmony",
+                    "test-cov": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
+                    "test-travis": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot",
+                    "prepublish": "npm run browserify",
+                    "browserify": "browserify index.js -o ./co-browser.js -s co"
+                },
+                "npm-asset-engines": {
+                    "iojs": ">= 1.0.0",
+                    "node": ">= 0.12.0"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "generator async control flow goodness",
+            "homepage": "https://github.com/tj/co#readme",
+            "keywords": [
+                "async",
+                "coro",
+                "coroutine",
+                "flow",
+                "generator"
+            ]
+        },
+        {
+            "name": "npm-asset/fast-deep-equal",
+            "version": "0.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-0.1.0.tgz",
+                "reference": null,
+                "shasum": "5c6f4599aba6b333ee3342e2ed978672f1001f8d"
+            },
+            "require-dev": {
+                "npm-asset/coveralls": ">=2.13.1,<3.0.0",
+                "npm-asset/eslint": ">=4.0.0,<5.0.0",
+                "npm-asset/mocha": ">=3.4.2,<4.0.0",
+                "npm-asset/nyc": ">=11.0.2,<12.0.0",
+                "npm-asset/pre-commit": ">=1.2.2,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/epoberezkin/fast-deep-equal/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/epoberezkin/fast-deep-equal.git"
+                },
+                "npm-asset-scripts": {
+                    "eslint": "eslint *.js spec",
+                    "test-spec": "mocha spec/*.spec.js -R spec",
+                    "test-cov": "nyc npm run test-spec",
+                    "test": "npm run eslint && npm run test-cov"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeny Poberezkin"
+                }
+            ],
+            "description": "Fast deep equal",
+            "homepage": "https://github.com/epoberezkin/fast-deep-equal#readme",
+            "keywords": [
+                "deep-equal",
+                "equal",
+                "fast"
+            ]
+        },
+        {
+            "name": "npm-asset/javascript-natural-sort",
+            "version": "0.7.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz",
+                "reference": null,
+                "shasum": "f9e2303d4507f6d74355a73664d1440fb5a0ef59"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Bill4Time/javascript-natural-sort/issues"
+                },
+                "npm-asset-main": "naturalSort.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "https://github.com/Bill4Time/javascript-natural-sort.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Palmer",
+                    "url": "based on chunking idea from Dave Koelle, packaged by @khous of Bill4Time"
+                }
+            ],
+            "description": "Natural Sort algorithm for Javascript - Version 0.7 - Released under MIT license",
+            "homepage": "https://github.com/Bill4Time/javascript-natural-sort",
+            "keywords": [
+                "array",
+                "javascript",
+                "natural",
+                "sort",
+                "sort",
+                "sorting"
+            ]
+        },
+        {
+            "name": "npm-asset/json-schema-traverse",
+            "version": "0.3.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz",
+                "reference": null,
+                "shasum": "349a6d44c53a51de89b40805c5d5e59b417d3340"
+            },
+            "require-dev": {
+                "npm-asset/coveralls": ">=2.13.1,<3.0.0",
+                "npm-asset/eslint": ">=3.19.0,<4.0.0",
+                "npm-asset/mocha": ">=3.4.2,<4.0.0",
+                "npm-asset/nyc": ">=11.0.2,<12.0.0",
+                "npm-asset/pre-commit": ">=1.2.2,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/epoberezkin/json-schema-traverse/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/epoberezkin/json-schema-traverse.git"
+                },
+                "npm-asset-scripts": {
+                    "eslint": "eslint index.js spec",
+                    "test-spec": "mocha spec -R spec",
+                    "test": "npm run eslint && nyc npm run test-spec"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeny Poberezkin"
+                }
+            ],
+            "description": "Traverse JSON Schema passing each schema object to callback",
+            "homepage": "https://github.com/epoberezkin/json-schema-traverse#readme",
+            "keywords": [
+                "JSON-Schema",
+                "iterate",
+                "traverse"
+            ]
+        },
+        {
+            "name": "npm-asset/json-stable-stringify",
+            "version": "1.0.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/json-stable-stringify/-/json-stable-stringify-1.0.1.tgz",
+                "reference": null,
+                "shasum": "9a759d39c5f2ff503fd5300646ed445f88c4f9af"
+            },
+            "require": {
+                "npm-asset/jsonify": "~0.0.0"
+            },
+            "require-dev": {
+                "npm-asset/tape": "~1.0.4"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/substack/json-stable-stringify/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/substack/json-stable-stringify.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "tape test/*.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Halliday",
+                    "email": "mail@substack.net",
+                    "url": "http://substack.net"
+                }
+            ],
+            "description": "deterministic JSON.stringify() with custom sorting to get deterministic hashes from stringified results",
+            "homepage": "https://github.com/substack/json-stable-stringify",
+            "keywords": [
+                "deterministic",
+                "hash",
+                "json",
+                "sort",
+                "stable",
+                "stringify"
+            ]
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "5.0.1",
+            "version": "5.9.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.0.1.tgz",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.9.0.tgz",
                 "reference": null,
-                "shasum": null
+                "shasum": "e2c86ac689d8329cd6eb6f2a54d35bd8b2fe9241"
             },
             "require": {
-                "npm-asset/brace": "0.7.0"
+                "npm-asset/ajv": "5.2.0",
+                "npm-asset/brace": "0.10.0",
+                "npm-asset/javascript-natural-sort": "0.7.1"
             },
-            "type": "npm-asset"
+            "require-dev": {
+                "npm-asset/gulp": "3.9.1",
+                "npm-asset/gulp-clean-css": "3.4.2",
+                "npm-asset/gulp-concat-css": "2.3.0",
+                "npm-asset/gulp-shell": "0.6.3",
+                "npm-asset/gulp-util": "3.0.8",
+                "npm-asset/json-loader": "0.5.4",
+                "npm-asset/mkdirp": "0.5.1",
+                "npm-asset/mocha": "3.4.2",
+                "npm-asset/uglify-js": "2.8.22",
+                "npm-asset/webpack": "1.13.1"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/josdejong/jsoneditor/issues"
+                },
+                "npm-asset-main": "./index",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/josdejong/jsoneditor.git"
+                },
+                "npm-asset-scripts": {
+                    "build": "gulp",
+                    "watch": "gulp watch",
+                    "test": "mocha test"
+                }
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Jos de Jong",
+                    "email": "wjosdejong@gmail.com"
+                }
+            ],
+            "description": "A web-based tool to view, edit, format, and validate JSON",
+            "homepage": "https://github.com/josdejong/jsoneditor"
+        },
+        {
+            "name": "npm-asset/jsonify",
+            "version": "0.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jsonify/-/jsonify-0.0.0.tgz",
+                "reference": null,
+                "shasum": "2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
+            },
+            "require-dev": {
+                "npm-asset/garbage": "dev-0.0.x|0.0.x",
+                "npm-asset/tap": "dev-0.0.x|0.0.x"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": {
+                    "lib": ".",
+                    "test": "test"
+                },
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/substack/jsonify.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "tap test"
+                },
+                "npm-asset-engines": {
+                    "node": "*"
+                }
+            },
+            "license": [
+                "Public Domain"
+            ],
+            "authors": [
+                {
+                    "name": "Douglas Crockford",
+                    "url": "http://crockford.com/"
+                }
+            ],
+            "description": "JSON without touching any globals",
+            "keywords": [
+                "browser",
+                "json"
+            ]
         },
         {
             "name": "npm-asset/w3c-blob",
@@ -218,9 +784,36 @@
                 "type": "tar",
                 "url": "https://registry.npmjs.org/w3c-blob/-/w3c-blob-0.0.1.tgz",
                 "reference": null,
-                "shasum": null
+                "shasum": "b0cd352a1a50f515563420ffd5861f950f1d85b8"
             },
-            "type": "npm-asset"
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/chrisdickinson/w3c-blob.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "node test.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Dickinson",
+                    "email": "chris@neversaw.us"
+                }
+            ],
+            "description": "w3c dom blob api in node and browser",
+            "keywords": [
+                "api",
+                "blob",
+                "dom",
+                "w3c"
+            ]
         },
         {
             "name": "yiisoft/yii2",
@@ -933,16 +1526,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.35",
+            "version": "4.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "791b1a67c25af50e230f841ee7a9c6eba507dc87"
+                "reference": "46023de9a91eec7dfb06cc56cb4e260017298517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/791b1a67c25af50e230f841ee7a9c6eba507dc87",
-                "reference": "791b1a67c25af50e230f841ee7a9c6eba507dc87",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/46023de9a91eec7dfb06cc56cb4e260017298517",
+                "reference": "46023de9a91eec7dfb06cc56cb4e260017298517",
                 "shasum": ""
             },
             "require": {
@@ -1001,7 +1594,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-02-06T05:18:07+00:00"
+            "time": "2017-06-21T08:07:12+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -1433,16 +2026,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.3.2",
+            "version": "v3.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063"
+                "reference": "1f93a8d19b8241617f5074a123e282575b821df8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/9752a30000a8ca9f4b34b5227d15d0101b96b063",
-                "reference": "9752a30000a8ca9f4b34b5227d15d0101b96b063",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/1f93a8d19b8241617f5074a123e282575b821df8",
+                "reference": "1f93a8d19b8241617f5074a123e282575b821df8",
                 "shasum": ""
             },
             "require": {
@@ -1484,7 +2077,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-02T22:05:06+00:00"
+            "time": "2017-06-15T12:58:50+00:00"
         },
         {
             "name": "webmozart/assert",
