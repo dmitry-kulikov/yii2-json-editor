@@ -17,7 +17,7 @@ class JsonEditorTest extends TestCase
     public static function assetProvider()
     {
         return [
-            'development' => ['jsoneditor.min.css', 'jsoneditor-minimalist.min.js', 'jsoneditor.min.js'],
+            'production' => ['jsoneditor.min.css', 'jsoneditor-minimalist.min.js', 'jsoneditor.min.js'],
         ];
     }
 
@@ -50,10 +50,10 @@ class JsonEditorTest extends TestCase
         $testWidgetAsset(['name' => 'data', 'clientOptions' => ['modes' => ['code']]], $fullAssetName, $css, $fullJs);
     }
 
-    public static function assetProductionProvider()
+    public static function assetDevelopmentProvider()
     {
         return [
-            'production' => ['jsoneditor.css', 'jsoneditor-minimalist.js', 'jsoneditor.js'],
+            'development' => ['jsoneditor.css', 'jsoneditor-minimalist.js', 'jsoneditor.js'],
         ];
     }
 
@@ -63,10 +63,10 @@ class JsonEditorTest extends TestCase
      * @param string $fullJs
      * @covers       \kdn\yii2\assets\JsonEditorAsset
      * @covers       \kdn\yii2\JsonEditor
-     * @dataProvider assetProductionProvider
+     * @dataProvider assetDevelopmentProvider
      * @medium
      */
-    public function testAssetProduction($css, $minimalistJs, $fullJs)
+    public function testAssetDevelopment($css, $minimalistJs, $fullJs)
     {
         if (!function_exists('runkit_constant_redefine')) {
             $this->markTestSkipped('runkit extension required.');
@@ -112,6 +112,25 @@ class JsonEditorTest extends TestCase
      * @uses   \kdn\yii2\assets\JsonEditorAsset
      * @medium
      */
+    public function testEditorWidgetWithScriptInJson()
+    {
+        $html = JsonEditor::widget(
+            [
+                'id' => 'data',
+                'name' => 'data',
+                'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}',
+            ]
+        );
+        $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
+        $jsCodeBlock = reset(Yii::$app->view->js);
+        $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
+    }
+
+    /**
+     * @covers \kdn\yii2\JsonEditor
+     * @uses   \kdn\yii2\assets\JsonEditorAsset
+     * @medium
+     */
     public function testEditorActiveWidgetAndDefaults()
     {
         $html = static::catchOutput(
@@ -131,15 +150,17 @@ class JsonEditorTest extends TestCase
      * @uses   \kdn\yii2\assets\JsonEditorAsset
      * @medium
      */
-    public function testWidgetWithScriptInJson()
+    public function testEditorActiveWidgetWithAttributeExpression()
     {
-        $html = JsonEditor::widget(
-            [
-                'id' => 'data',
-                'name' => 'data',
-                'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}',
-            ]
-        );
+        $html = static::catchOutput(
+            function () {
+                $model = new ModelMock;
+                $model->data = ['{}', '{"foo": "bar"}'];
+                $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
+                echo $form->field($model, '[1]data[1]')->widget(JsonEditor::className());
+                ActiveForm::end();
+            }
+        )['output'];
         $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));

@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+1.0.4 September 28, 2017
+------------------------
+
+- Bug #3: Widget doesn't work for tabular data input (multiple models in form).
+
 1.0.3 March 29, 2017
 --------------------
 

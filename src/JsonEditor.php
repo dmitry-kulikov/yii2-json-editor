@@ -81,13 +81,10 @@ class JsonEditor extends InputWidget
             $this->containerOptions['style'] = 'height: 250px;';
         }
         if ($this->hasModel()) {
-            if (empty($this->model->{$this->attribute})) {
-                $this->model->{$this->attribute} = $this->defaultValue;
-            }
-        } else {
-            if (empty($this->value)) {
-                $this->value = $this->defaultValue;
-            }
+            $this->value = Html::getAttributeValue($this->model, $this->attribute);
+        }
+        if (empty($this->value)) {
+            $this->value = $this->defaultValue;
         }
         foreach (['mode', 'modes'] as $parameterName) {
             $this->$parameterName = ArrayHelper::getValue($this->clientOptions, $parameterName, $this->$parameterName);
@@ -165,7 +162,7 @@ class JsonEditor extends InputWidget
             $jsOnModeChange = "function(newMode, oldMode) {";
             foreach (['collapseAll', 'expandAll'] as $property) {
                 if (!empty($this->$property)) {
-                    $jsOnModeChange .= "if (" . Json::htmlEncode($this->$property) . ".indexOf(newMode) != -1) " .
+                    $jsOnModeChange .= "if (" . Json::htmlEncode($this->$property) . ".indexOf(newMode) !== -1) " .
                         "{{$editorName}.$property();}";
                 }
             }
@@ -173,14 +170,9 @@ class JsonEditor extends InputWidget
             $this->clientOptions['onModeChange'] = new JsExpression($jsOnModeChange);
         }
 
-        if ($this->hasModel()) {
-            $value = $this->model->{$this->attribute};
-        } else {
-            $value = $this->value;
-        }
-        $value = Json::htmlEncode(Json::decode($value, false));
+        $encodedValue = Json::htmlEncode(Json::decode($this->value, false));
         $jsCode = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
-            Json::htmlEncode($this->clientOptions) . ", $value);\n" .
+            Json::htmlEncode($this->clientOptions) . ", $encodedValue);\n" .
             "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";
         if (in_array($this->mode, $this->collapseAll)) {
             $jsCode .= "\n$editorName.collapseAll();";
