@@ -6,6 +6,8 @@ checks:
     php:
         code_rating: true
         duplication: true
+        excluded_dependencies:
+            - npm-asset/jsoneditor
 
 tools:
     external_code_coverage: true
