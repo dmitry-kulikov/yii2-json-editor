@@ -118,7 +118,7 @@ class JsonEditorTest extends TestCase
             [
                 'id' => 'data',
                 'name' => 'data',
-                'value' => '{"script": "<script type=\"text/javascript\">alert(\"XSS\");</script>"}',
+                'value' => '{"script": "<script>alert(\"XSS\");</script>"}',
             ]
         );
         $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
