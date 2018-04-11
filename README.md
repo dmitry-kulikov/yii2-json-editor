@@ -95,7 +95,11 @@ use kdn\yii2\JsonEditor;
 
 echo JsonEditor::widget(
     [
-        'clientOptions' => ['mode' => 'view'],
+        'clientOptions' => [
+		'mode' => 'view',
+		'navigationBar' => false,
+        'statusBar' => false,
+		],
         'collapseAll' => ['view'],
         'containerOptions' => ['style' => null],
         'name' => 'viewer',
