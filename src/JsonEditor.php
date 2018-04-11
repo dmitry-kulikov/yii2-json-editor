@@ -69,6 +69,16 @@ class JsonEditor extends InputWidget
     private $modes = [];
 
     /**
+     * @var bool adds navigation bar to the menu
+     */
+    private $navigationBar = true;
+
+    /**
+     * @var bool adds status bar to the buttom of the editor
+     */
+    private $statusBar = true;
+
+    /**
      * @inheritdoc
      */
     public function init()
@@ -86,7 +96,7 @@ class JsonEditor extends InputWidget
         if (empty($this->value)) {
             $this->value = $this->defaultValue;
         }
-        foreach (['mode', 'modes'] as $parameterName) {
+        foreach (['mode', 'modes', 'statusBar', 'navigationBar'] as $parameterName) {
             $this->$parameterName = ArrayHelper::getValue($this->clientOptions, $parameterName, $this->$parameterName);
         }
         // make sure that "mode" is specified, otherwise JavaScript error can occur in some situations
