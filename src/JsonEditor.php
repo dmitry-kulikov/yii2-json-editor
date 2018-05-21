@@ -49,7 +49,7 @@ class JsonEditor extends InputWidget
     public $expandAll = [];
 
     /**
-     * @var null|boolean whether to use minimalist version of JSON editor;
+     * @var null|bool whether to use minimalist version of JSON editor;
      * note that "minimalist" is not the same as "minimized";
      * if property is not set then extension will try to determine automatically whether full version is needed,
      * if full version is not required then minimalist version will be used;

@@ -91,8 +91,8 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
      * @param string $methodName name of test method
      * @param string $actualString
      * @param string $message
-     * @param boolean $canonicalize
-     * @param boolean $ignoreCase
+     * @param bool $canonicalize
+     * @param bool $ignoreCase
      */
     public static function assertStringEqualsHtmlFile(
         $methodName,
@@ -115,8 +115,8 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
      * @param string $methodName name of test method
      * @param string $actualString
      * @param string $message
-     * @param boolean $canonicalize
-     * @param boolean $ignoreCase
+     * @param bool $canonicalize
+     * @param bool $ignoreCase
      */
     public static function assertStringEqualsJsFile(
         $methodName,
