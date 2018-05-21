@@ -48,7 +48,7 @@
                 {
                     "name": "npm-asset/jsoneditor",
                     "type": "npm-vcs",
-                    "url": "git@github.com:josdejong/jsoneditor.git"
+                    "url": "https://github.com/josdejong/jsoneditor.git"
                 }
             ]
         }
