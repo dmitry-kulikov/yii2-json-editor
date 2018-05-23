@@ -43,14 +43,7 @@
             "vcs-driver-options": {
                 "github-no-api": true
             },
-            "pattern-skip-version": "(-build|-patch)",
-            "repositories": [
-                {
-                    "name": "npm-asset/jsoneditor",
-                    "type": "npm-vcs",
-                    "url": "https://github.com/josdejong/jsoneditor.git"
-                }
-            ]
+            "pattern-skip-version": "(-build|-patch)"
         }
     },
     "autoload": {

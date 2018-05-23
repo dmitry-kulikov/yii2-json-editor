@@ -708,46 +708,32 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "v5.15.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/josdejong/jsoneditor.git",
-                "reference": "9a77045e78349166b8edc468d053cda42651c8a2"
-            },
+            "version": "5.16.0",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/josdejong/jsoneditor/zipball/9a77045e78349166b8edc468d053cda42651c8a2",
-                "reference": "9a77045e78349166b8edc468d053cda42651c8a2",
-                "shasum": ""
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.16.0.tgz",
+                "reference": null,
+                "shasum": "6cd6d6e5f0ef18c7646bce63d3c1406f2f0b336b"
             },
             "require": {
                 "npm-asset/ajv": "5.5.2",
                 "npm-asset/brace": "0.11.0",
                 "npm-asset/javascript-natural-sort": "0.7.1"
             },
-            "require-dev": {
-                "npm-asset/gulp": "3.9.1",
-                "npm-asset/gulp-clean-css": "3.4.2",
-                "npm-asset/gulp-concat-css": "2.3.0",
-                "npm-asset/gulp-shell": "0.6.3",
-                "npm-asset/gulp-util": "3.0.8",
-                "npm-asset/json-loader": "0.5.4",
-                "npm-asset/mkdirp": "0.5.1",
-                "npm-asset/mocha": "3.4.2",
-                "npm-asset/uglify-js": "2.8.22",
-                "npm-asset/webpack": "1.13.1"
-            },
             "type": "npm-asset-library",
             "extra": {
-                "npm-asset-bugs": "https://github.com/josdejong/jsoneditor/issues",
+                "npm-asset-bugs": {
+                    "url": "https://github.com/josdejong/jsoneditor/issues"
+                },
                 "npm-asset-main": "./index",
+                "npm-asset-directories": [],
                 "npm-asset-repository": {
                     "type": "git",
-                    "url": "https://github.com/josdejong/jsoneditor.git"
+                    "url": "git+https://github.com/josdejong/jsoneditor.git"
                 },
                 "npm-asset-scripts": {
                     "build": "gulp",
-                    "watch": "gulp watch",
+                    "start": "gulp watch",
                     "test": "mocha test"
                 }
             },
@@ -755,11 +741,14 @@
                 "Apache-2.0"
             ],
             "authors": [
-                "Jos de Jong <wjosdejong@gmail.com>"
+                {
+                    "name": "Jos de Jong",
+                    "email": "wjosdejong@gmail.com"
+                }
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2018-05-02T08:42:47+00:00"
+            "time": "2018-05-23T07:59:06+00:00"
         },
         {
             "name": "yiisoft/yii2",
