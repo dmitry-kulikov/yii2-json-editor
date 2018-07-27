@@ -9,14 +9,14 @@ namespace kdn\yii2\assets;
 class JsonEditorMinimalistAsset extends JsonEditorAsset
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $jsDev = [
         'jsoneditor-minimalist.js',
     ];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $jsProd = [
         'jsoneditor-minimalist.min.js',

@@ -1,6 +1,17 @@
 Change Log
 ==========
 
+2.0.0 July 27, 2018
+-------------------
+
+- Chg: Removed inline style `height: 250px;` to simplify specification of custom height.
+This change may affect your design. You can specify custom height like this:
+    ```css
+    div.jsoneditor {
+        height: 250px;
+    }
+    ```
+
 1.0.4 September 28, 2017
 ------------------------
 

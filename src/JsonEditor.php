@@ -69,16 +69,13 @@ class JsonEditor extends InputWidget
     private $modes = [];
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
         parent::init();
         if (!isset($this->containerOptions['id'])) {
             $this->containerOptions['id'] = $this->options['id'] . '-json-editor';
-        }
-        if (!array_key_exists('style', $this->containerOptions)) {
-            $this->containerOptions['style'] = 'height: 250px;';
         }
         if ($this->hasModel()) {
             $this->value = Html::getAttributeValue($this->model, $this->attribute);
@@ -97,7 +94,7 @@ class JsonEditor extends InputWidget
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function run()
     {

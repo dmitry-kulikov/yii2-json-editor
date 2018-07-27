@@ -79,14 +79,14 @@ with ActiveForm and Model:
 use kdn\yii2\JsonEditor;
 
 echo $form->field($model, 'data')->widget(
-    JsonEditor::className(),
+    JsonEditor::class,
     [
         'clientOptions' => ['modes' => ['code', 'tree']],
     ]
 );
 ```
 
-compact viewer:
+compact viewer expandable on demand:
 
 ```php
 <?php
@@ -97,17 +97,22 @@ echo JsonEditor::widget(
     [
         'clientOptions' => ['mode' => 'view'],
         'collapseAll' => ['view'],
-        'containerOptions' => ['style' => null],
         'name' => 'viewer',
         'value' => $json,
     ]
 );
 ```
 
+```css
+div.jsoneditor div.jsoneditor-tree table.jsoneditor-tree {
+    margin-bottom: 0;
+}
+```
+
 To get instance of JSON editor on client side you can use the following JavaScript:
 
 ```javascript
-var jsonEditor = window[$('#your-hidden-input-id').data('json-editor-name')];
+var jsonEditor = window[$('#YOUR-HIDDEN-INPUT-ID').data('json-editor-name')];
 jsonEditor.set({"foo": "bar"});
 ```
 

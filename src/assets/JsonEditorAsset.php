@@ -39,12 +39,12 @@ abstract class JsonEditorAsset extends AssetBundle
     public $jsProd;
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public $sourcePath = '@npm/jsoneditor/dist';
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {

@@ -2,8 +2,6 @@
 
 namespace kdn\yii2;
 
-use kdn\yii2\assets\JsonEditorFullAsset;
-use kdn\yii2\assets\JsonEditorMinimalistAsset;
 use kdn\yii2\mocks\ModelMock;
 use Yii;
 use yii\widgets\ActiveForm;
@@ -40,8 +38,8 @@ class JsonEditorTest extends TestCase
             $this->assertEquals([$js], $bundles[$assetName]->js);
         };
 
-        $fullAssetName = JsonEditorFullAsset::className();
-        $minimalistAssetName = JsonEditorMinimalistAsset::className();
+        $fullAssetName = 'kdn\yii2\assets\JsonEditorFullAsset';
+        $minimalistAssetName = 'kdn\yii2\assets\JsonEditorMinimalistAsset';
 
         $testWidgetAsset(['name' => 'data'], $minimalistAssetName, $css, $minimalistJs);
         static::mockWebApplication();
@@ -136,7 +134,7 @@ class JsonEditorTest extends TestCase
         $html = static::catchOutput(
             function () {
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
-                echo $form->field(new ModelMock, 'data')->widget(JsonEditor::className(), ['expandAll' => ['tree']]);
+                echo $form->field(new ModelMock, 'data')->widget('kdn\yii2\JsonEditor', ['expandAll' => ['tree']]);
                 ActiveForm::end();
             }
         )['output'];
@@ -157,7 +155,7 @@ class JsonEditorTest extends TestCase
                 $model = new ModelMock;
                 $model->data = ['{}', '{"foo": "bar"}'];
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
-                echo $form->field($model, '[1]data[1]')->widget(JsonEditor::className());
+                echo $form->field($model, '[1]data[1]')->widget('kdn\yii2\JsonEditor');
                 ActiveForm::end();
             }
         )['output'];

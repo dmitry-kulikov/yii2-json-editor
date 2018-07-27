@@ -657,6 +657,52 @@
             "time": "2014-01-02T17:54:40+00:00"
         },
         {
+            "name": "npm-asset/jmespath",
+            "version": "0.15.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jmespath/-/jmespath-0.15.0.tgz",
+                "reference": null,
+                "shasum": "a3f222a9aae9f966f5d27c796510e28091764217"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "http://github.com/jmespath/jmespath.js/issues"
+                },
+                "npm-asset-main": "jmespath.js",
+                "npm-asset-directories": {
+                    "test": "test"
+                },
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/jmespath/jmespath.js.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "mocha test/"
+                },
+                "npm-asset-engines": {
+                    "node": ">= 0.6.0"
+                }
+            },
+            "authors": [
+                {
+                    "name": "James Saryerwinnie",
+                    "email": "js@jamesls.com",
+                    "url": "http://jamesls.com/"
+                }
+            ],
+            "description": "JMESPath implementation in javascript",
+            "homepage": "https://github.com/jmespath/jmespath.js",
+            "keywords": [
+                "jmespath",
+                "json",
+                "jsonpath",
+                "xpath"
+            ],
+            "time": "2016-03-25T16:51:26+00:00"
+        },
+        {
             "name": "npm-asset/json-schema-traverse",
             "version": "0.3.1",
             "dist": {
@@ -708,17 +754,20 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "5.16.0",
+            "version": "5.19.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.16.0.tgz",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.19.0.tgz",
                 "reference": null,
-                "shasum": "6cd6d6e5f0ef18c7646bce63d3c1406f2f0b336b"
+                "shasum": "89fc651873e2c25888d8c034059f8a1eb4a4cde9"
             },
             "require": {
                 "npm-asset/ajv": "5.5.2",
                 "npm-asset/brace": "0.11.0",
-                "npm-asset/javascript-natural-sort": "0.7.1"
+                "npm-asset/javascript-natural-sort": "0.7.1",
+                "npm-asset/jmespath": "0.15.0",
+                "npm-asset/mobius1-selectr": "2.4.1",
+                "npm-asset/picomodal": "3.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -748,7 +797,85 @@
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2018-05-23T07:59:06+00:00"
+            "time": "2018-07-11T11:13:16+00:00"
+        },
+        {
+            "name": "npm-asset/mobius1-selectr",
+            "version": "2.4.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/mobius1-selectr/-/mobius1-selectr-2.4.1.tgz",
+                "reference": null,
+                "shasum": "95d547f60bc2c45a145fd858982dcc9f58c06efa"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Mobius1/Selectr/issues"
+                },
+                "npm-asset-main": "dist/selectr.min.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Mobius1/Selectr.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "grunt test"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Karl Saunders"
+                }
+            ],
+            "description": "A lightweight, dependency-free, mobile-friendly javascript select box replacement.",
+            "homepage": "https://github.com/Mobius1/Selectr#readme",
+            "keywords": [
+                "forms",
+                "select",
+                "selectbox"
+            ],
+            "time": "2017-10-02T12:33:47+00:00"
+        },
+        {
+            "name": "npm-asset/picomodal",
+            "version": "3.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/picomodal/-/picomodal-3.0.0.tgz",
+                "reference": null,
+                "shasum": "facd30f4fbf34a809c1e04ea525f004f399c0b82"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Nycto/PicoModal/issues"
+                },
+                "npm-asset-main": "src/picoModal.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Nycto/PicoModal.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "grunt travis"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Frasca",
+                    "email": "james@roundeights.com"
+                }
+            ],
+            "description": "A small, self-contained JavaScript modal library",
+            "homepage": "https://github.com/Nycto/PicoModal#readme",
+            "time": "2016-09-11T19:51:50+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -852,16 +979,16 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "163419f1f197e02f015713b0d4f85598d8f8aa80"
+                "reference": "1439e78be1218c492e6cde251ed87d3f128b9534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/163419f1f197e02f015713b0d4f85598d8f8aa80",
-                "reference": "163419f1f197e02f015713b0d4f85598d8f8aa80",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/1439e78be1218c492e6cde251ed87d3f128b9534",
+                "reference": "1439e78be1218c492e6cde251ed87d3f128b9534",
                 "shasum": ""
             },
             "require": {
@@ -902,38 +1029,38 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2018-03-21T16:15:55+00:00"
+            "time": "2018-07-05T15:44:47+00:00"
         }
     ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.0.5",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d"
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/8e884e78f9f0eb1329e445619e04456e64d8051d",
-                "reference": "8e884e78f9f0eb1329e445619e04456e64d8051d",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3,<8.0-DEV"
+                "php": "^7.1"
             },
             "require-dev": {
                 "athletic/athletic": "~0.1.8",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "~4.0",
-                "squizlabs/php_codesniffer": "~2.0"
+                "phpunit/phpunit": "^6.2.3",
+                "squizlabs/php_codesniffer": "^3.0.2"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -958,7 +1085,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14T21:17:01+00:00"
+            "time": "2017-07-22T11:58:36+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1016,29 +1143,35 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "3.2.2",
+            "version": "4.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157"
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/4aada1f93c72c35e22fb1383b47fee43b8f1d157",
-                "reference": "4aada1f93c72c35e22fb1383b47fee43b8f1d157",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
+                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5",
-                "phpdocumentor/reflection-common": "^1.0@dev",
-                "phpdocumentor/type-resolver": "^0.3.0",
+                "php": "^7.0",
+                "phpdocumentor/reflection-common": "^1.0.0",
+                "phpdocumentor/type-resolver": "^0.4.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^4.4"
+                "doctrine/instantiator": "~1.0.5",
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "phpDocumentor\\Reflection\\": [
@@ -1057,20 +1190,20 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-08-08T06:39:58+00:00"
+            "time": "2017-11-30T07:14:17+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.3.0",
+            "version": "0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773"
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/fb3933512008d8162b3cdf9e18dba9309b7c3773",
-                "reference": "fb3933512008d8162b3cdf9e18dba9309b7c3773",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
                 "shasum": ""
             },
             "require": {
@@ -1104,7 +1237,7 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-06-03T08:32:36+00:00"
+            "time": "2017-07-14T14:27:02+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -2020,7 +2153,7 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.10",
+            "version": "v3.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
