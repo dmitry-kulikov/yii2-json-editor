@@ -47,7 +47,8 @@
             "repositories": {
                 "npm-asset/jmespath": {
                     "type": "npm-vcs",
-                    "url": "https://github.com/jmespath/jmespath.js.git"
+                    "url": "https://github.com/jmespath/jmespath.js.git",
+                    "no-api": true
                 }
             }
         }
