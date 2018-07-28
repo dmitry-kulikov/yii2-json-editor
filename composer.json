@@ -43,7 +43,13 @@
             "vcs-driver-options": {
                 "github-no-api": true
             },
-            "pattern-skip-version": "(-build|-patch)"
+            "pattern-skip-version": "(-build|-patch)",
+            "repositories": {
+                "npm-asset/jmespath": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/jmespath/jmespath.js.git"
+                }
+            }
         }
     },
     "autoload": {

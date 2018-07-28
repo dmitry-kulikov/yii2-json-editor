@@ -659,10 +659,15 @@
         {
             "name": "npm-asset/jmespath",
             "version": "0.15.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.js.git",
+                "reference": "72a28807b164317f2c61f0e2372656c424bc4b6c"
+            },
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jmespath/-/jmespath-0.15.0.tgz",
-                "reference": null,
+                "url": "https://api.github.com/repos/jmespath/jmespath.js/zipball/72a28807b164317f2c61f0e2372656c424bc4b6c",
+                "reference": "72a28807b164317f2c61f0e2372656c424bc4b6c",
                 "shasum": "a3f222a9aae9f966f5d27c796510e28091764217"
             },
             "type": "npm-asset-library",
@@ -754,12 +759,12 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "5.19.0",
+            "version": "5.19.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.19.0.tgz",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.19.1.tgz",
                 "reference": null,
-                "shasum": "89fc651873e2c25888d8c034059f8a1eb4a4cde9"
+                "shasum": "ecb140ac5a95296a48154afd459ad105fb83a72e"
             },
             "require": {
                 "npm-asset/ajv": "5.5.2",
@@ -797,7 +802,7 @@
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2018-07-11T11:13:16+00:00"
+            "time": "2018-07-28T13:35:53+00:00"
         },
         {
             "name": "npm-asset/mobius1-selectr",
