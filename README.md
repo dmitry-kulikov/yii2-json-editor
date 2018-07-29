@@ -104,8 +104,8 @@ echo JsonEditor::widget(
 ```
 
 ```css
-div.jsoneditor div.jsoneditor-tree table.jsoneditor-tree {
-    margin-bottom: 0;
+div.jsoneditor div.jsoneditor-tree div.jsoneditor-tree-inner {
+    padding-bottom: 0;
 }
 ```
 
