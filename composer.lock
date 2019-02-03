@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f599d97bcec736c7b2b37744e7e4d99",
+    "content-hash": "c01053d8c21ccf9878051b10d5af3ea8",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -68,16 +68,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "3.2.1",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "77d2a51d0520d2ee44173afdf4e40a9201f5964e"
+                "reference": "9e8ec3d10fad04748176144f108d7355662ae75e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/77d2a51d0520d2ee44173afdf4e40a9201f5964e",
-                "reference": "77d2a51d0520d2ee44173afdf4e40a9201f5964e",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/9e8ec3d10fad04748176144f108d7355662ae75e",
+                "reference": "9e8ec3d10fad04748176144f108d7355662ae75e",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -96,7 +96,7 @@
                 "jquery",
                 "library"
             ],
-            "time": "2017-03-20T19:02:00+00:00"
+            "time": "2018-01-20T17:26:57+00:00"
         },
         {
             "name": "bower-asset/punycode",
@@ -167,16 +167,16 @@
         },
         {
             "name": "cebe/markdown",
-            "version": "1.1.2",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cebe/markdown.git",
-                "reference": "25b28bae8a6f185b5030673af77b32e1163d5c6e"
+                "reference": "9bac5e971dd391e2802dca5400bbeacbaea9eb86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cebe/markdown/zipball/25b28bae8a6f185b5030673af77b32e1163d5c6e",
-                "reference": "25b28bae8a6f185b5030673af77b32e1163d5c6e",
+                "url": "https://api.github.com/repos/cebe/markdown/zipball/9bac5e971dd391e2802dca5400bbeacbaea9eb86",
+                "reference": "9bac5e971dd391e2802dca5400bbeacbaea9eb86",
                 "shasum": ""
             },
             "require": {
@@ -194,7 +194,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -223,7 +223,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2017-07-16T21:13:23+00:00"
+            "time": "2018-03-26T11:24:36+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -350,12 +350,12 @@
         },
         {
             "name": "npm-asset/brace",
-            "version": "0.11.0",
+            "version": "0.11.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/brace/-/brace-0.11.0.tgz",
+                "url": "https://registry.npmjs.org/brace/-/brace-0.11.1.tgz",
                 "reference": null,
-                "shasum": "155cd80607687dc8cb908f0df94e62a033c1d563"
+                "shasum": "4896fcc9d544eef45f4bb7660db320d3b379fe58"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -394,7 +394,7 @@
                 "inline",
                 "package"
             ],
-            "time": "2017-11-21T10:41:21+00:00"
+            "time": "2018-02-14T16:25:19+00:00"
         },
         {
             "name": "npm-asset/co",
@@ -443,6 +443,48 @@
                 "generator"
             ],
             "time": "2015-07-09T22:30:44+00:00"
+        },
+        {
+            "name": "npm-asset/drag-tracker",
+            "version": "1.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/drag-tracker/-/drag-tracker-1.0.0.tgz",
+                "reference": null,
+                "shasum": "9bd33d380bc3056db69bd5b3cf6e062fec58bd64"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Sphinxxxx/drag-tracker/issues"
+                },
+                "npm-asset-files": [
+                    "src/",
+                    "dist/"
+                ],
+                "npm-asset-main": "dist/drag-tracker.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Sphinxxxx/drag-tracker.git"
+                },
+                "npm-asset-scripts": {
+                    "prepublish": "bash ./scripts/prepub.sh",
+                    "postpublish": "bash ./scripts/postpub.sh",
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Borgen"
+                }
+            ],
+            "description": "A simple library for dragging things around. Tracks dragging with touch or mouse.",
+            "homepage": "https://github.com/Sphinxxxx/drag-tracker#readme",
+            "time": "2018-04-05T18:40:08+00:00"
         },
         {
             "name": "npm-asset/fast-deep-equal",
@@ -681,21 +723,69 @@
             "time": "2017-06-23T23:50:57+00:00"
         },
         {
-            "name": "npm-asset/jsoneditor",
-            "version": "5.19.1",
+            "name": "npm-asset/json-source-map",
+            "version": "0.4.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.19.1.tgz",
+                "url": "https://registry.npmjs.org/json-source-map/-/json-source-map-0.4.0.tgz",
                 "reference": null,
-                "shasum": "ecb140ac5a95296a48154afd459ad105fb83a72e"
+                "shasum": "eea837fe3ce2f2bfd5b13687779406354423c355"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/epoberezkin/json-source-map/issues"
+                },
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/epoberezkin/json-source-map.git"
+                },
+                "npm-asset-scripts": {
+                    "eslint": "eslint index.js spec",
+                    "test-spec": "mocha spec -R spec",
+                    "test-debug": "mocha spec -R spec --debug-brk",
+                    "test": "npm run eslint && nyc npm run test-spec"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evgeny Poberezkin"
+                }
+            ],
+            "description": "Parse/stringify JSON and provide source-map for JSON-pointers to all nodes",
+            "homepage": "https://github.com/epoberezkin/json-source-map#readme",
+            "keywords": [
+                "JSON",
+                "json-pointer",
+                "parse",
+                "source-map",
+                "stringify"
+            ],
+            "time": "2017-01-12T20:52:01+00:00"
+        },
+        {
+            "name": "npm-asset/jsoneditor",
+            "version": "5.28.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.28.2.tgz",
+                "reference": null,
+                "shasum": "29ce17ad3d474c85144be6e63ca8209dc9fc3a4a"
             },
             "require": {
                 "npm-asset/ajv": "5.5.2",
-                "npm-asset/brace": "0.11.0",
+                "npm-asset/brace": "0.11.1",
                 "npm-asset/javascript-natural-sort": "0.7.1",
                 "npm-asset/jmespath": "0.15.0",
-                "npm-asset/mobius1-selectr": "2.4.1",
-                "npm-asset/picomodal": "3.0.0"
+                "npm-asset/json-source-map": "0.4.0",
+                "npm-asset/mobius1-selectr": "2.4.2",
+                "npm-asset/picomodal": "3.0.0",
+                "npm-asset/vanilla-picker": "2.4.2"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -725,16 +815,16 @@
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2018-07-28T13:35:53+00:00"
+            "time": "2019-01-23T13:30:21+00:00"
         },
         {
             "name": "npm-asset/mobius1-selectr",
-            "version": "2.4.1",
+            "version": "2.4.2",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/mobius1-selectr/-/mobius1-selectr-2.4.1.tgz",
+                "url": "https://registry.npmjs.org/mobius1-selectr/-/mobius1-selectr-2.4.2.tgz",
                 "reference": null,
-                "shasum": "95d547f60bc2c45a145fd858982dcc9f58c06efa"
+                "shasum": "b8a619c8a0ed6234590e5e5a9e979e15d9b4b89a"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -766,7 +856,7 @@
                 "select",
                 "selectbox"
             ],
-            "time": "2017-10-02T12:33:47+00:00"
+            "time": "2018-08-28T11:15:21+00:00"
         },
         {
             "name": "npm-asset/picomodal",
@@ -806,25 +896,125 @@
             "time": "2016-09-11T19:51:50+00:00"
         },
         {
+            "name": "npm-asset/sphinxxxx--color-conversion",
+            "version": "2.2.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@sphinxxxx/color-conversion/-/color-conversion-2.2.1.tgz",
+                "reference": null,
+                "shasum": "88e94a50fa79f48bb0d1490bb716df8d506941dd"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Sphinxxxx/color-conversion/issues"
+                },
+                "npm-asset-main": "dist/color-conversion.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Sphinxxxx/color-conversion.git"
+                },
+                "npm-asset-scripts": {
+                    "prepublish": "bash ./scripts/prepub.sh",
+                    "postpublish": "bash ./scripts/postpub.sh",
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Joudee",
+                    "url": "https://github.com/Joudee"
+                }
+            ],
+            "description": "Convert colors between RGBA/HSLA/Hex",
+            "homepage": "https://github.com/Sphinxxxx/color-conversion",
+            "time": "2019-01-11T21:22:55+00:00"
+        },
+        {
+            "name": "npm-asset/vanilla-picker",
+            "version": "2.4.2",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/vanilla-picker/-/vanilla-picker-2.4.2.tgz",
+                "reference": null,
+                "shasum": "830f1d23934c5eb25fc7b1d667aa8c21260f041c"
+            },
+            "require": {
+                "npm-asset/drag-tracker": ">=1.0.0,<2.0.0",
+                "npm-asset/sphinxxxx--color-conversion": ">=2.1.1,<3.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/Sphinxxxx/vanilla-picker/issues"
+                },
+                "npm-asset-main": "dist/vanilla-picker.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/Sphinxxxx/vanilla-picker.git"
+                },
+                "npm-asset-scripts": {
+                    "prepublish": "bash ./scripts/prepub.sh",
+                    "postpublish": "bash ./scripts/postpub.sh",
+                    "test": "echo \"Error: no test specified\" && exit 1"
+                }
+            },
+            "license": [
+                "ISC"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Borgen",
+                    "url": "https://github.com/Sphinxxxx"
+                }
+            ],
+            "description": "A simple, easy to use vanilla JS color picker with alpha selection.",
+            "homepage": "https://vanilla-picker.js.org",
+            "keywords": [
+                "alpha",
+                "color",
+                "color picker",
+                "color-picker",
+                "colorpicker",
+                "colour",
+                "hex",
+                "hsl",
+                "hsla",
+                "picker",
+                "rgb",
+                "rgba",
+                "ui",
+                "ux",
+                "vanilla",
+                "vanilla-js"
+            ],
+            "time": "2018-09-06T12:12:47+00:00"
+        },
+        {
             "name": "yiisoft/yii2",
-            "version": "2.0.15.1",
+            "version": "2.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d"
+                "reference": "789de9783d41e6ca10fffc3644a43a764f79b399"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
-                "reference": "ed3a9e1c4abe206e1c3ce48a6b3624119b79850d",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/789de9783d41e6ca10fffc3644a43a764f79b399",
+                "reference": "789de9783d41e6ca10fffc3644a43a764f79b399",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
-                "bower-asset/jquery": "3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/jquery": "3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
                 "bower-asset/punycode": "1.3.*",
                 "bower-asset/yii2-pjax": "~2.0.1",
-                "cebe/markdown": "~1.0.0 | ~1.1.0",
+                "cebe/markdown": "~1.0.0 | ~1.1.0 | ~1.2.0",
                 "ext-ctype": "*",
                 "ext-mbstring": "*",
                 "ezyang/htmlpurifier": "~4.6",
@@ -903,7 +1093,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2018-03-21T18:36:53+00:00"
+            "time": "2019-01-30T23:54:16+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1169,16 +1359,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.7.6",
+            "version": "1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712"
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
-                "reference": "33a7e3c4fda54e912ff6338c48823bd5c0f0b712",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
                 "shasum": ""
             },
             "require": {
@@ -1190,12 +1380,12 @@
             },
             "require-dev": {
                 "phpspec/phpspec": "^2.5|^3.2",
-                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5 || ^7.1"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.8.x-dev"
                 }
             },
             "autoload": {
@@ -1228,7 +1418,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-04-18T13:57:24+00:00"
+            "time": "2018-08-05T17:53:17+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2026,25 +2216,28 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.8.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae"
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
-                "reference": "7cc359f1b7b80fc25ed7796be7d96adc9b354bae",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
+                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
+            "suggest": {
+                "ext-ctype": "For best performance"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-master": "1.9-dev"
                 }
             },
             "autoload": {
@@ -2066,7 +2259,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "BackEndTea@gmail.com"
+                    "email": "backendtea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -2077,20 +2270,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-04-30T19:57:29+00:00"
+            "time": "2018-08-06T14:22:27+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.13",
+            "version": "v3.4.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0"
+                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
-                "reference": "c5010cc1692ce1fa328b1fb666961eb3d4a85bb0",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
+                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
                 "shasum": ""
             },
             "require": {
@@ -2136,24 +2329,25 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2018-05-03T23:18:14+00:00"
+            "time": "2019-01-01T13:45:19+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.3.0",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a"
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/0df1908962e7a3071564e857d86874dad1ef204a",
-                "reference": "0df1908962e7a3071564e857d86874dad1ef204a",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/83e253c8e0be5b0257b881e1827274667c5c17a9",
+                "reference": "83e253c8e0be5b0257b881e1827274667c5c17a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^5.3.3 || ^7.0",
+                "symfony/polyfill-ctype": "^1.8"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.6",
@@ -2186,7 +2380,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2018-01-29T19:49:41+00:00"
+            "time": "2018-12-25T11:19:39+00:00"
         }
     ],
     "aliases": [],
