@@ -1,6 +1,6 @@
 # yii2-json-editor
 
-[JSON editor](http://jsoneditoronline.org) widget for Yii 2.  
+[JSON editor](https://jsoneditoronline.org) widget for Yii 2.  
 This widget uses JSON editor [josdejong/jsoneditor](https://github.com/josdejong/jsoneditor).
 
 [![License](https://poser.pugx.org/kdn/yii2-json-editor/license)](https://packagist.org/packages/kdn/yii2-json-editor)
