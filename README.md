@@ -6,7 +6,6 @@ This widget uses JSON editor [josdejong/jsoneditor](https://github.com/josdejong
 [![License](https://poser.pugx.org/kdn/yii2-json-editor/license)](https://packagist.org/packages/kdn/yii2-json-editor)
 [![Latest Stable Version](https://poser.pugx.org/kdn/yii2-json-editor/v/stable)](https://packagist.org/packages/kdn/yii2-json-editor)
 [![Build Status](https://travis-ci.org/dmitry-kulikov/yii2-json-editor.svg?branch=master)](https://travis-ci.org/dmitry-kulikov/yii2-json-editor)
-[![Tested PHP Versions](https://php-eye.com/badge/kdn/yii2-json-editor/tested.svg?branch=master)](https://php-eye.com/package/kdn/yii2-json-editor)
 [![Code Coverage](https://scrutinizer-ci.com/g/dmitry-kulikov/yii2-json-editor/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dmitry-kulikov/yii2-json-editor/?branch=master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dmitry-kulikov/yii2-json-editor/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dmitry-kulikov/yii2-json-editor/?branch=master)
 [![Code Climate](https://codeclimate.com/github/dmitry-kulikov/yii2-json-editor/badges/gpa.svg)](https://codeclimate.com/github/dmitry-kulikov/yii2-json-editor)

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c01053d8c21ccf9878051b10d5af3ea8",
+    "content-hash": "2509ca8b0ea058837cef921fc1b425f8",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -68,16 +68,16 @@
         },
         {
             "name": "bower-asset/jquery",
-            "version": "3.3.1",
+            "version": "3.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jquery/jquery-dist.git",
-                "reference": "9e8ec3d10fad04748176144f108d7355662ae75e"
+                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/9e8ec3d10fad04748176144f108d7355662ae75e",
-                "reference": "9e8ec3d10fad04748176144f108d7355662ae75e",
+                "url": "https://api.github.com/repos/jquery/jquery-dist/zipball/15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
+                "reference": "15bc73803f76bc53b654b9fdbbbc096f56d7c03d",
                 "shasum": ""
             },
             "type": "bower-asset-library",
@@ -96,7 +96,7 @@
                 "jquery",
                 "library"
             ],
-            "time": "2018-01-20T17:26:57+00:00"
+            "time": "2019-05-01T21:19:28+00:00"
         },
         {
             "name": "bower-asset/punycode",
@@ -274,31 +274,23 @@
         },
         {
             "name": "npm-asset/ajv",
-            "version": "5.5.2",
+            "version": "6.10.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/ajv/-/ajv-5.5.2.tgz",
-                "reference": null,
-                "shasum": "73b5eeca3fab653e3d3f9422b341ad42205dc965"
+                "url": "https://registry.npmjs.org/ajv/-/ajv-6.10.0.tgz",
+                "shasum": "90d0d54439da587cd7e843bfb7045f50bd22bdf1"
             },
             "require": {
-                "npm-asset/co": ">=4.6.0,<5.0.0",
-                "npm-asset/fast-deep-equal": ">=1.0.0,<2.0.0",
+                "npm-asset/fast-deep-equal": ">=2.0.1,<3.0.0",
                 "npm-asset/fast-json-stable-stringify": ">=2.0.0,<3.0.0",
-                "npm-asset/json-schema-traverse": ">=0.3.0,<0.4.0"
+                "npm-asset/json-schema-traverse": ">=0.4.1,<0.5.0",
+                "npm-asset/uri-js": ">=4.2.2,<5.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
                 "npm-asset-bugs": {
                     "url": "https://github.com/epoberezkin/ajv/issues"
                 },
-                "npm-asset-files": [
-                    "lib/",
-                    "dist/",
-                    "scripts/",
-                    "LICENSE",
-                    ".tonic_example.js"
-                ],
                 "npm-asset-main": "lib/ajv.js",
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
@@ -306,24 +298,23 @@
                     "url": "git+https://github.com/epoberezkin/ajv.git"
                 },
                 "npm-asset-scripts": {
-                    "eslint": "if-node-version \">=4\" eslint lib/*.js lib/compile/*.js spec/*.js scripts",
-                    "jshint": "jshint lib/*.js lib/**/*.js --exclude lib/dotjs/**/*",
-                    "test-spec": "mocha spec/*.spec.js -R spec $(if-node-version 7 echo --harmony-async-await)",
+                    "eslint": "eslint lib/{compile/,}*.js spec/{**/,}*.js scripts --ignore-pattern spec/JSON-Schema-Test-Suite",
+                    "jshint": "jshint lib/{compile/,}*.js",
+                    "lint": "npm run jshint && npm run eslint",
+                    "test-spec": "mocha spec/{**/,}*.spec.js -R spec",
                     "test-fast": "AJV_FAST_TEST=true npm run test-spec",
-                    "test-debug": "mocha spec/*.spec.js --debug-brk -R spec",
+                    "test-debug": "npm run test-spec -- --inspect-brk",
                     "test-cov": "nyc npm run test-spec",
-                    "test-ts": "tsc --target ES5 --noImplicitAny lib/ajv.d.ts",
-                    "bundle": "node ./scripts/bundle.js . Ajv pure_getters",
-                    "bundle-regenerator": "node ./scripts/bundle.js regenerator",
-                    "bundle-nodent": "node ./scripts/bundle.js nodent",
-                    "bundle-all": "del-cli dist && npm run bundle && npm run bundle-regenerator && npm run bundle-nodent",
+                    "test-ts": "tsc --target ES5 --noImplicitAny --noEmit spec/typescript/index.ts",
+                    "bundle": "del-cli dist && node ./scripts/bundle.js . Ajv pure_getters",
                     "bundle-beautify": "node ./scripts/bundle.js js-beautify",
-                    "build": "del-cli lib/dotjs/*.js && node scripts/compile-dots.js",
-                    "test-karma": "karma start --single-run --browsers PhantomJS",
-                    "test-browser": "del-cli .browser && npm run bundle-all && scripts/prepare-tests && npm run test-karma",
-                    "test": "npm run jshint && npm run eslint && npm run test-ts && npm run build && npm run test-cov && if-node-version 4 npm run test-browser",
-                    "prepublish": "npm run build && npm run bundle-all",
-                    "watch": "watch 'npm run build' ./lib/dot"
+                    "build": "del-cli lib/dotjs/*.js \"!lib/dotjs/index.js\" && node scripts/compile-dots.js",
+                    "test-karma": "karma start",
+                    "test-browser": "del-cli .browser && npm run bundle && scripts/prepare-tests && npm run test-karma",
+                    "test-all": "npm run test-ts && npm run test-cov && if-node-version 10 npm run test-browser",
+                    "test": "npm run lint && npm run build && npm run test-all",
+                    "prepublish": "npm run build && npm run bundle",
+                    "watch": "watch \"npm run build\" ./lib/dot"
                 }
             },
             "license": [
@@ -346,7 +337,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2017-12-16T20:35:18+00:00"
+            "time": "2019-03-03T11:27:56+00:00"
         },
         {
             "name": "npm-asset/brace",
@@ -354,7 +345,6 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/brace/-/brace-0.11.1.tgz",
-                "reference": null,
                 "shasum": "4896fcc9d544eef45f4bb7660db320d3b379fe58"
             },
             "type": "npm-asset-library",
@@ -397,60 +387,11 @@
             "time": "2018-02-14T16:25:19+00:00"
         },
         {
-            "name": "npm-asset/co",
-            "version": "4.6.0",
-            "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
-                "reference": null,
-                "shasum": "6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
-            },
-            "type": "npm-asset-library",
-            "extra": {
-                "npm-asset-bugs": {
-                    "url": "https://github.com/tj/co/issues"
-                },
-                "npm-asset-files": [
-                    "index.js"
-                ],
-                "npm-asset-directories": [],
-                "npm-asset-repository": {
-                    "type": "git",
-                    "url": "git+https://github.com/tj/co.git"
-                },
-                "npm-asset-scripts": {
-                    "test": "mocha --harmony",
-                    "test-cov": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter dot",
-                    "test-travis": "node --harmony node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- --reporter dot",
-                    "prepublish": "npm run browserify",
-                    "browserify": "browserify index.js -o ./co-browser.js -s co"
-                },
-                "npm-asset-engines": {
-                    "iojs": ">= 1.0.0",
-                    "node": ">= 0.12.0"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "description": "generator async control flow goodness",
-            "homepage": "https://github.com/tj/co#readme",
-            "keywords": [
-                "async",
-                "coro",
-                "coroutine",
-                "flow",
-                "generator"
-            ],
-            "time": "2015-07-09T22:30:44+00:00"
-        },
-        {
             "name": "npm-asset/drag-tracker",
             "version": "1.0.0",
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/drag-tracker/-/drag-tracker-1.0.0.tgz",
-                "reference": null,
                 "shasum": "9bd33d380bc3056db69bd5b3cf6e062fec58bd64"
             },
             "type": "npm-asset-library",
@@ -488,12 +429,11 @@
         },
         {
             "name": "npm-asset/fast-deep-equal",
-            "version": "1.1.0",
+            "version": "2.0.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz",
-                "reference": null,
-                "shasum": "c053477817c86b51daa853c81e059b733d023614"
+                "url": "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz",
+                "shasum": "7b05218ddf9667bf7f370bf7fdb2cb15fdd0aa49"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -533,7 +473,7 @@
                 "equal",
                 "fast"
             ],
-            "time": "2018-02-25T20:45:49+00:00"
+            "time": "2018-04-28T10:03:50+00:00"
         },
         {
             "name": "npm-asset/fast-json-stable-stringify",
@@ -541,7 +481,6 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz",
-                "reference": null,
                 "shasum": "d5142c0caee6b1189f87d3a76111064f86c8bbf2"
             },
             "type": "npm-asset-library",
@@ -588,7 +527,6 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/javascript-natural-sort/-/javascript-natural-sort-0.7.1.tgz",
-                "reference": null,
                 "shasum": "f9e2303d4507f6d74355a73664d1440fb5a0ef59"
             },
             "type": "npm-asset-library",
@@ -681,12 +619,11 @@
         },
         {
             "name": "npm-asset/json-schema-traverse",
-            "version": "0.3.1",
+            "version": "0.4.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz",
-                "reference": null,
-                "shasum": "349a6d44c53a51de89b40805c5d5e59b417d3340"
+                "url": "https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz",
+                "shasum": "69f6a87d9513ab8bb8fe63bdb0979c448e684660"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -720,7 +657,7 @@
                 "iterate",
                 "traverse"
             ],
-            "time": "2017-06-23T23:50:57+00:00"
+            "time": "2018-06-10T08:42:05+00:00"
         },
         {
             "name": "npm-asset/json-source-map",
@@ -728,7 +665,6 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/json-source-map/-/json-source-map-0.4.0.tgz",
-                "reference": null,
                 "shasum": "eea837fe3ce2f2bfd5b13687779406354423c355"
             },
             "type": "npm-asset-library",
@@ -770,22 +706,21 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "5.28.2",
+            "version": "6.0.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-5.28.2.tgz",
-                "reference": null,
-                "shasum": "29ce17ad3d474c85144be6e63ca8209dc9fc3a4a"
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-6.0.0.tgz",
+                "shasum": "79cb8732863b92c425bb037196b4a7808f8d3291"
             },
             "require": {
-                "npm-asset/ajv": "5.5.2",
+                "npm-asset/ajv": "6.10.0",
                 "npm-asset/brace": "0.11.1",
                 "npm-asset/javascript-natural-sort": "0.7.1",
                 "npm-asset/jmespath": "0.15.0",
                 "npm-asset/json-source-map": "0.4.0",
-                "npm-asset/mobius1-selectr": "2.4.2",
+                "npm-asset/mobius1-selectr": "2.4.12",
                 "npm-asset/picomodal": "3.0.0",
-                "npm-asset/vanilla-picker": "2.4.2"
+                "npm-asset/vanilla-picker": "2.8.1"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -815,16 +750,15 @@
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2019-01-23T13:30:21+00:00"
+            "time": "2019-06-12T18:56:18+00:00"
         },
         {
             "name": "npm-asset/mobius1-selectr",
-            "version": "2.4.2",
+            "version": "2.4.12",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/mobius1-selectr/-/mobius1-selectr-2.4.2.tgz",
-                "reference": null,
-                "shasum": "b8a619c8a0ed6234590e5e5a9e979e15d9b4b89a"
+                "url": "https://registry.npmjs.org/mobius1-selectr/-/mobius1-selectr-2.4.12.tgz",
+                "shasum": "c6ed52df54f4a4e34ab0472d462d2defac25a7c0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -856,7 +790,7 @@
                 "select",
                 "selectbox"
             ],
-            "time": "2018-08-28T11:15:21+00:00"
+            "time": "2019-05-31T20:43:12+00:00"
         },
         {
             "name": "npm-asset/picomodal",
@@ -864,7 +798,6 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/picomodal/-/picomodal-3.0.0.tgz",
-                "reference": null,
                 "shasum": "facd30f4fbf34a809c1e04ea525f004f399c0b82"
             },
             "type": "npm-asset-library",
@@ -896,12 +829,69 @@
             "time": "2016-09-11T19:51:50+00:00"
         },
         {
+            "name": "npm-asset/punycode",
+            "version": "2.1.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz",
+                "shasum": "b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/bestiejs/punycode.js/issues"
+                },
+                "npm-asset-files": [
+                    "LICENSE-MIT.txt",
+                    "punycode.js",
+                    "punycode.es6.js"
+                ],
+                "npm-asset-main": "punycode.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/bestiejs/punycode.js.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "mocha tests",
+                    "prepublish": "node scripts/prepublish.js"
+                },
+                "npm-asset-engines": {
+                    "node": ">=6"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mathias Bynens",
+                    "url": "https://mathiasbynens.be/"
+                },
+                {
+                    "name": "Mathias Bynens",
+                    "url": "https://mathiasbynens.be/"
+                }
+            ],
+            "description": "A robust Punycode converter that fully complies to RFC 3492 and RFC 5891, and works on nearly all JavaScript platforms.",
+            "homepage": "https://mths.be/punycode",
+            "keywords": [
+                "dns",
+                "domain",
+                "idn",
+                "idna",
+                "punycode",
+                "unicode",
+                "url"
+            ],
+            "time": "2018-05-22T02:46:47+00:00"
+        },
+        {
             "name": "npm-asset/sphinxxxx--color-conversion",
             "version": "2.2.1",
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/@sphinxxxx/color-conversion/-/color-conversion-2.2.1.tgz",
-                "reference": null,
                 "shasum": "88e94a50fa79f48bb0d1490bb716df8d506941dd"
             },
             "type": "npm-asset-library",
@@ -935,17 +925,83 @@
             "time": "2019-01-11T21:22:55+00:00"
         },
         {
-            "name": "npm-asset/vanilla-picker",
-            "version": "2.4.2",
+            "name": "npm-asset/uri-js",
+            "version": "4.2.2",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/vanilla-picker/-/vanilla-picker-2.4.2.tgz",
-                "reference": null,
-                "shasum": "830f1d23934c5eb25fc7b1d667aa8c21260f041c"
+                "url": "https://registry.npmjs.org/uri-js/-/uri-js-4.2.2.tgz",
+                "shasum": "94c540e1ff772956e2299507c010aea6c8838eb0"
+            },
+            "require": {
+                "npm-asset/punycode": ">=2.1.0,<3.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/garycourt/uri-js/issues"
+                },
+                "npm-asset-main": "dist/es5/uri.all.js",
+                "npm-asset-directories": {
+                    "test": "tests"
+                },
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/garycourt/uri-js.git"
+                },
+                "npm-asset-scripts": {
+                    "build:esnext": "tsc",
+                    "build:es5": "rollup -c && cp dist/esnext/uri.d.ts dist/es5/uri.all.d.ts && npm run build:es5:fix-sourcemap",
+                    "build:es5:fix-sourcemap": "sorcery -i dist/es5/uri.all.js",
+                    "build:es5:min": "uglifyjs dist/es5/uri.all.js --support-ie8 --output dist/es5/uri.all.min.js --in-source-map dist/es5/uri.all.js.map --source-map uri.all.min.js.map --comments --compress --mangle --pure-funcs merge subexp  && mv uri.all.min.js.map dist/es5/ && cp dist/es5/uri.all.d.ts dist/es5/uri.all.min.d.ts",
+                    "build": "npm run build:esnext && npm run build:es5 && npm run build:es5:min",
+                    "test": "mocha -u mocha-qunit-ui dist/es5/uri.all.js tests/tests.js"
+                }
+            },
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Gary Court",
+                    "email": "gary.court@gmail.com"
+                }
+            ],
+            "description": "An RFC 3986/3987 compliant, scheme extendable URI/IRI parsing/validating/resolving library for JavaScript.",
+            "homepage": "https://github.com/garycourt/uri-js",
+            "keywords": [
+                "HTTP",
+                "HTTPS",
+                "IDN",
+                "IRI",
+                "MAILTO",
+                "RFC2141",
+                "RFC2616",
+                "RFC2818",
+                "RFC3986",
+                "RFC3987",
+                "RFC4122",
+                "RFC4291",
+                "RFC5891",
+                "RFC5952",
+                "RFC6068",
+                "RFC6874",
+                "URI",
+                "URN",
+                "UUID"
+            ],
+            "time": "2018-05-25T21:54:57+00:00"
+        },
+        {
+            "name": "npm-asset/vanilla-picker",
+            "version": "2.8.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/vanilla-picker/-/vanilla-picker-2.8.1.tgz",
+                "shasum": "6e643a0356987dca535a2becc970a052e869119e"
             },
             "require": {
                 "npm-asset/drag-tracker": ">=1.0.0,<2.0.0",
-                "npm-asset/sphinxxxx--color-conversion": ">=2.1.1,<3.0.0"
+                "npm-asset/sphinxxxx--color-conversion": ">=2.2.1,<3.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -993,25 +1049,25 @@
                 "vanilla",
                 "vanilla-js"
             ],
-            "time": "2018-09-06T12:12:47+00:00"
+            "time": "2019-06-09T21:34:19+00:00"
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.16",
+            "version": "2.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "789de9783d41e6ca10fffc3644a43a764f79b399"
+                "reference": "7e4622252c5f272373e1339a47d331e4a55e9591"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/789de9783d41e6ca10fffc3644a43a764f79b399",
-                "reference": "789de9783d41e6ca10fffc3644a43a764f79b399",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/7e4622252c5f272373e1339a47d331e4a55e9591",
+                "reference": "7e4622252c5f272373e1339a47d331e4a55e9591",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/inputmask": "~3.2.2 | ~3.3.5",
-                "bower-asset/jquery": "3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/jquery": "3.4.*@stable | 3.3.*@stable | 3.2.*@stable | 3.1.*@stable | 2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
                 "bower-asset/punycode": "1.3.*",
                 "bower-asset/yii2-pjax": "~2.0.1",
                 "cebe/markdown": "~1.0.0 | ~1.1.0 | ~1.2.0",
@@ -1093,7 +1149,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-01-30T23:54:16+00:00"
+            "time": "2019-06-18T14:25:08+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1153,27 +1209,29 @@
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/instantiator.git",
-                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda"
+                "reference": "a2c590166b2133a4633738648b6b064edae0814a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
-                "reference": "185b8868aa9bf7159f5f953ed5afb2d7fcdc3bda",
+                "url": "https://api.github.com/repos/doctrine/instantiator/zipball/a2c590166b2133a4633738648b6b064edae0814a",
+                "reference": "a2c590166b2133a4633738648b6b064edae0814a",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1"
             },
             "require-dev": {
-                "athletic/athletic": "~0.1.8",
+                "doctrine/coding-standard": "^6.0",
                 "ext-pdo": "*",
                 "ext-phar": "*",
-                "phpunit/phpunit": "^6.2.3",
-                "squizlabs/php_codesniffer": "^3.0.2"
+                "phpbench/phpbench": "^0.13",
+                "phpstan/phpstan-phpunit": "^0.11",
+                "phpstan/phpstan-shim": "^0.11",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
@@ -1198,12 +1256,12 @@
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
-            "homepage": "https://github.com/doctrine/instantiator",
+            "homepage": "https://www.doctrine-project.org/projects/instantiator.html",
             "keywords": [
                 "constructor",
                 "instantiate"
             ],
-            "time": "2017-07-22T11:58:36+00:00"
+            "time": "2019-03-17T17:37:11+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -1261,16 +1319,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.0",
+            "version": "4.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "94fd0001232e47129dd3504189fa1c7225010d08"
+                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/94fd0001232e47129dd3504189fa1c7225010d08",
-                "reference": "94fd0001232e47129dd3504189fa1c7225010d08",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
                 "shasum": ""
             },
             "require": {
@@ -1308,7 +1366,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2017-11-30T07:14:17+00:00"
+            "time": "2019-04-30T17:48:53+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -1359,16 +1417,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06"
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
-                "reference": "4ba436b55987b4bf311cb7c6ba82aa528aac0a06",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
                 "shasum": ""
             },
             "require": {
@@ -1389,8 +1447,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Prophecy\\": "src/"
+                "psr-4": {
+                    "Prophecy\\": "src/Prophecy"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1418,7 +1476,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2018-08-05T17:53:17+00:00"
+            "time": "2019-06-13T12:50:23+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -1840,6 +1898,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2015-10-02T06:51:40+00:00"
         },
         {
@@ -2216,16 +2275,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.10.0",
+            "version": "v1.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19"
+                "reference": "82ebae02209c21113908c229e9883c419720738a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/e3d826245268269cd66f8326bd8bc066687b4a19",
-                "reference": "e3d826245268269cd66f8326bd8bc066687b4a19",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/82ebae02209c21113908c229e9883c419720738a",
+                "reference": "82ebae02209c21113908c229e9883c419720738a",
                 "shasum": ""
             },
             "require": {
@@ -2237,7 +2296,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "1.11-dev"
                 }
             },
             "autoload": {
@@ -2259,7 +2318,7 @@
                 },
                 {
                     "name": "Gert de Pagter",
-                    "email": "backendtea@gmail.com"
+                    "email": "BackEndTea@gmail.com"
                 }
             ],
             "description": "Symfony polyfill for ctype functions",
@@ -2270,20 +2329,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2019-02-06T07:57:58+00:00"
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.21",
+            "version": "v3.4.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea"
+                "reference": "212a27b731e5bfb735679d1ffaac82bd6a1dc996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
-                "reference": "554a59a1ccbaac238a89b19c8e551a556fd0e2ea",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/212a27b731e5bfb735679d1ffaac82bd6a1dc996",
+                "reference": "212a27b731e5bfb735679d1ffaac82bd6a1dc996",
                 "shasum": ""
             },
             "require": {
@@ -2329,7 +2388,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-01T13:45:19+00:00"
+            "time": "2019-03-25T07:48:46+00:00"
         },
         {
             "name": "webmozart/assert",

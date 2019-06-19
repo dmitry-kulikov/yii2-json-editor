@@ -134,7 +134,10 @@ class JsonEditorTest extends TestCase
         $html = static::catchOutput(
             function () {
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
-                echo $form->field(new ModelMock, 'data')->widget('kdn\yii2\JsonEditor', ['expandAll' => ['tree']]);
+                echo $form->field(new ModelMock, 'data')->widget(
+                    'kdn\yii2\JsonEditor',
+                    ['expandAll' => ['tree'], 'options' => ['class' => false]]
+                );
                 ActiveForm::end();
             }
         )['output'];
@@ -155,7 +158,10 @@ class JsonEditorTest extends TestCase
                 $model = new ModelMock;
                 $model->data = ['{}', '{"foo": "bar"}'];
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
-                echo $form->field($model, '[1]data[1]')->widget('kdn\yii2\JsonEditor');
+                echo $form->field($model, '[1]data[1]')->widget(
+                    'kdn\yii2\JsonEditor',
+                    ['options' => ['class' => false]]
+                );
                 ActiveForm::end();
             }
         )['output'];
