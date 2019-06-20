@@ -2,4 +2,6 @@
 /composer.phar
 /coverage
 /phpunit.xml
+/phpunit.xml.backup
+/TODO.txt
 /vendor
