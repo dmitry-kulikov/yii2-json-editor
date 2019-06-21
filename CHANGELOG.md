@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2.1.0 June 21, 2019
+-------------------
+
+- Enh: Updated npm-asset/jsoneditor version constraint to allow version 6.
+
 2.0.0 July 27, 2018
 -------------------
 
