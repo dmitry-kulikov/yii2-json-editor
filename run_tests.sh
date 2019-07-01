@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 PHP_VERSION=${1}
 NAME="yii2-json-editor:php-${PHP_VERSION}"
