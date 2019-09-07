@@ -25,7 +25,7 @@
     "require": {
         "php": ">=5.4.0",
 
-        "npm-asset/jsoneditor": "5.* || 6.*",
+        "npm-asset/jsoneditor": "5.* || 6.* || 7.*",
         "yiisoft/yii2": "2.*"
     },
     "require-dev": {
