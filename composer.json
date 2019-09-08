@@ -46,6 +46,11 @@
             },
             "pattern-skip-version": "(-build|-patch)",
             "repositories": {
+                "npm-asset/brace": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/thlorenz/brace.git",
+                    "no-api": true
+                },
                 "npm-asset/jmespath": {
                     "type": "npm-vcs",
                     "url": "https://github.com/jmespath/jmespath.js.git",
