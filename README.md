@@ -102,12 +102,6 @@ echo JsonEditor::widget(
 );
 ```
 
-```css
-div.jsoneditor div.jsoneditor-tree div.jsoneditor-tree-inner {
-    padding-bottom: 0;
-}
-```
-
 To get instance of JSON editor on client side you can use the following JavaScript:
 
 ```javascript

@@ -54,7 +54,7 @@ class JsonEditor extends InputWidget
      * if property is not set then extension will try to determine automatically whether full version is needed,
      * if full version is not required then minimalist version will be used;
      * you can explicitly set this property to true or false if automatic detection does not fit for you application
-     * @see https://github.com/josdejong/jsoneditor/blob/master/dist/which%20files%20do%20I%20need.md
+     * @see https://github.com/josdejong/jsoneditor/blob/master/src/docs/which%20files%20do%20I%20need.md
      */
     public $minimalist;
 
