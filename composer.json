@@ -50,6 +50,11 @@
                     "type": "npm-vcs",
                     "url": "https://github.com/jmespath/jmespath.js.git",
                     "no-api": true
+                },
+                "npm-asset/uri-js": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/garycourt/uri-js.git",
+                    "no-api": true
                 }
             }
         }
