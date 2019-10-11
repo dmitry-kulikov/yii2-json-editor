@@ -342,10 +342,16 @@
         {
             "name": "npm-asset/brace",
             "version": "0.11.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thlorenz/brace.git",
+                "reference": "3a00c5d59777f9d826841178e1eb36694177f5e6"
+            },
             "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/brace/-/brace-0.11.1.tgz",
-                "shasum": "4896fcc9d544eef45f4bb7660db320d3b379fe58"
+                "type": "zip",
+                "url": "https://api.github.com/repos/thlorenz/brace/zipball/3a00c5d59777f9d826841178e1eb36694177f5e6",
+                "reference": "3a00c5d59777f9d826841178e1eb36694177f5e6",
+                "shasum": ""
             },
             "type": "npm-asset-library",
             "extra": {
@@ -437,10 +443,16 @@
         {
             "name": "npm-asset/fast-json-stable-stringify",
             "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epoberezkin/fast-json-stable-stringify.git",
+                "reference": "43c016ad43684fb3dff2f94e6bc25cd39fdf7f3b"
+            },
             "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/fast-json-stable-stringify/-/fast-json-stable-stringify-2.0.0.tgz",
-                "shasum": "d5142c0caee6b1189f87d3a76111064f86c8bbf2"
+                "type": "zip",
+                "url": "https://api.github.com/repos/epoberezkin/fast-json-stable-stringify/zipball/43c016ad43684fb3dff2f94e6bc25cd39fdf7f3b",
+                "reference": "43c016ad43684fb3dff2f94e6bc25cd39fdf7f3b",
+                "shasum": ""
             },
             "type": "npm-asset-library",
             "extra": {
@@ -670,11 +682,11 @@
         },
         {
             "name": "npm-asset/jsoneditor",
-            "version": "7.0.3",
+            "version": "7.0.5",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-7.0.3.tgz",
-                "shasum": "ebd57a792fd078d18a9bc1ea8a3385aba40aef3f"
+                "url": "https://registry.npmjs.org/jsoneditor/-/jsoneditor-7.0.5.tgz",
+                "shasum": "c27c36a2832e87bc5b339fb1f2081f8b22cfcfbd"
             },
             "require": {
                 "npm-asset/ajv": "6.10.2",
@@ -684,7 +696,7 @@
                 "npm-asset/json-source-map": "0.6.1",
                 "npm-asset/mobius1-selectr": "2.4.13",
                 "npm-asset/picomodal": "3.0.0",
-                "npm-asset/vanilla-picker": "2.9.2"
+                "npm-asset/vanilla-picker": "2.10.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -717,7 +729,7 @@
             ],
             "description": "A web-based tool to view, edit, format, and validate JSON",
             "homepage": "https://github.com/josdejong/jsoneditor",
-            "time": "2019-09-04T07:49:14+00:00"
+            "time": "2019-10-06T09:10:14+00:00"
         },
         {
             "name": "npm-asset/mobius1-selectr",
@@ -894,10 +906,16 @@
         {
             "name": "npm-asset/uri-js",
             "version": "4.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/garycourt/uri-js.git",
+                "reference": "4f6f600fade03398c08adf2755c3a2ad66d31b3c"
+            },
             "dist": {
-                "type": "tar",
-                "url": "https://registry.npmjs.org/uri-js/-/uri-js-4.2.2.tgz",
-                "shasum": "94c540e1ff772956e2299507c010aea6c8838eb0"
+                "type": "zip",
+                "url": "https://api.github.com/repos/garycourt/uri-js/zipball/4f6f600fade03398c08adf2755c3a2ad66d31b3c",
+                "reference": "4f6f600fade03398c08adf2755c3a2ad66d31b3c",
+                "shasum": ""
             },
             "require": {
                 "npm-asset/punycode": ">=2.1.0,<3.0.0"
@@ -960,14 +978,14 @@
         },
         {
             "name": "npm-asset/vanilla-picker",
-            "version": "2.9.2",
+            "version": "2.10.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/vanilla-picker/-/vanilla-picker-2.9.2.tgz",
-                "shasum": "d9a7213d2a5c6f6136374dceb9d3e27086854e0e"
+                "url": "https://registry.npmjs.org/vanilla-picker/-/vanilla-picker-2.10.0.tgz",
+                "shasum": "36676631b9346daa6b93aa4f80c541f113e38c50"
             },
             "require": {
-                "npm-asset/sphinxxxx--color-conversion": ">=2.2.1,<3.0.0"
+                "npm-asset/sphinxxxx--color-conversion": ">=2.2.2,<3.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -1015,20 +1033,20 @@
                 "vanilla",
                 "vanilla-js"
             ],
-            "time": "2019-07-23T17:08:37+00:00"
+            "time": "2019-09-03T19:34:23+00:00"
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.26",
+            "version": "2.0.28",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "5ca9036dd6eb75354fbd287cc57f79ca861fb7f1"
+                "reference": "80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/5ca9036dd6eb75354fbd287cc57f79ca861fb7f1",
-                "reference": "5ca9036dd6eb75354fbd287cc57f79ca861fb7f1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f",
+                "reference": "80bf3a6e04a0128f753cb73ba7255d8e2ae3a02f",
                 "shasum": ""
             },
             "require": {
@@ -1115,7 +1133,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2019-09-03T21:38:33+00:00"
+            "time": "2019-10-08T13:14:18+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1232,35 +1250,33 @@
         },
         {
             "name": "phpdocumentor/reflection-common",
-            "version": "1.0.1",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
-                "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
+                "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.6"
+                "phpunit/phpunit": "~6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1282,30 +1298,30 @@
                 "reflection",
                 "static analysis"
             ],
-            "time": "2017-09-11T18:02:19+00:00"
+            "time": "2018-08-07T13:53:10+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "4.3.1",
+            "version": "4.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
-                "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+                "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
-                "phpdocumentor/reflection-common": "^1.0.0",
-                "phpdocumentor/type-resolver": "^0.4.0",
+                "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
+                "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
                 "webmozart/assert": "^1.0"
             },
             "require-dev": {
-                "doctrine/instantiator": "~1.0.5",
+                "doctrine/instantiator": "^1.0.5",
                 "mockery/mockery": "^1.0",
                 "phpunit/phpunit": "^6.4"
             },
@@ -1333,41 +1349,40 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2019-04-30T17:48:53+00:00"
+            "time": "2019-09-12T14:27:41+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
-            "version": "0.4.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/TypeResolver.git",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
-                "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
+                "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
-                "phpdocumentor/reflection-common": "^1.0"
+                "php": "^7.1",
+                "phpdocumentor/reflection-common": "^2.0"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "^5.2||^4.8.24"
+                "ext-tokenizer": "^7.1",
+                "mockery/mockery": "~1",
+                "phpunit/phpunit": "^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "phpDocumentor\\Reflection\\": [
-                        "src/"
-                    ]
+                    "phpDocumentor\\Reflection\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1380,26 +1395,27 @@
                     "email": "me@mikevanriel.com"
                 }
             ],
-            "time": "2017-07-14T14:27:02+00:00"
+            "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
+            "time": "2019-08-22T18:11:29+00:00"
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -1443,7 +1459,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -2300,16 +2316,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.31",
+            "version": "v3.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834"
+                "reference": "768f817446da74a776a31eea335540f9dcb53942"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/3dc414b7db30695bae671a1d86013d03f4ae9834",
-                "reference": "3dc414b7db30695bae671a1d86013d03f4ae9834",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/768f817446da74a776a31eea335540f9dcb53942",
+                "reference": "768f817446da74a776a31eea335540f9dcb53942",
                 "shasum": ""
             },
             "require": {
@@ -2355,7 +2371,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-08-20T13:31:17+00:00"
+            "time": "2019-09-10T10:38:46+00:00"
         },
         {
             "name": "webmozart/assert",
