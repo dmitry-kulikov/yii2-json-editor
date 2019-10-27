@@ -59,6 +59,35 @@ class JsonEditor extends InputWidget
     public $minimalist;
 
     /**
+     * @var string[] list of client options which should be automatically converted to `JsExpression`
+     * @see clientOptions
+     */
+    protected $jsExpressionClientOptions = [
+        'ace',
+        'ajv',
+        'onChange',
+        'onChangeJSON',
+        'onChangeText',
+        'onClassName',
+        'onEditable',
+        'onError',
+        'onModeChange',
+        'onNodeName',
+        'onValidate',
+        'onCreateMenu',
+        'schema',
+        'schemaRefs',
+        'templates',
+        'autocomplete',
+        'onTextSelectionChange',
+        'onSelectionChange',
+        'onEvent',
+        'onColorPicker',
+        'languages',
+        'modalAnchor',
+    ];
+
+    /**
      * @var string default JSON editor mode
      */
     private $mode = 'tree';
@@ -77,17 +106,21 @@ class JsonEditor extends InputWidget
         if (!isset($this->containerOptions['id'])) {
             $this->containerOptions['id'] = $this->options['id'] . '-json-editor';
         }
+
         if ($this->hasModel()) {
             $this->value = Html::getAttributeValue($this->model, $this->attribute);
         }
         if (empty($this->value)) {
             $this->value = $this->defaultValue;
         }
+
         foreach (['mode', 'modes'] as $parameterName) {
             $this->$parameterName = ArrayHelper::getValue($this->clientOptions, $parameterName, $this->$parameterName);
         }
         // make sure that "mode" is specified, otherwise JavaScript error can occur in some situations
         $this->clientOptions['mode'] = $this->mode;
+
+        // if property is not set then try to determine automatically whether full version is needed
         if (!isset($this->minimalist)) {
             $this->minimalist = $this->mode != 'code' && !in_array('code', $this->modes);
         }
@@ -113,9 +146,8 @@ class JsonEditor extends InputWidget
     protected function initClientOptions()
     {
         $options = $this->clientOptions;
-        $jsExpressionOptions = ['ace', 'ajv', 'onChange', 'onEditable', 'onError', 'onModeChange', 'schema'];
         foreach ($options as $key => $value) {
-            if (!$value instanceof JsExpression && in_array($key, $jsExpressionOptions)) {
+            if (!$value instanceof JsExpression && in_array($key, $this->jsExpressionClientOptions)) {
                 $options[$key] = new JsExpression($value);
             }
         }
