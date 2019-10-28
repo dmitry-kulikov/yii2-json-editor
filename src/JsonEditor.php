@@ -37,6 +37,14 @@ class JsonEditor extends InputWidget
     public $containerOptions = [];
 
     /**
+     * @var mixed this property can be used instead of `value`;
+     * while `value` must be JSON string, `decodedValue` accepts decoded JSON, i.e. arrays, floats, booleans etc.;
+     * `decodedValue` has precedence over `value`: if `decodedValue` is set then `value` will be ignored
+     * @see value
+     */
+    public $decodedValue;
+
+    /**
      * @var string default value
      */
     public $defaultValue = '{}';
@@ -107,12 +115,7 @@ class JsonEditor extends InputWidget
             $this->containerOptions['id'] = $this->options['id'] . '-json-editor';
         }
 
-        if ($this->hasModel()) {
-            $this->value = Html::getAttributeValue($this->model, $this->attribute);
-        }
-        if (empty($this->value)) {
-            $this->value = $this->defaultValue;
-        }
+        $this->determineValue();
 
         foreach (['mode', 'modes'] as $parameterName) {
             $this->$parameterName = ArrayHelper::getValue($this->clientOptions, $parameterName, $this->$parameterName);
@@ -121,9 +124,40 @@ class JsonEditor extends InputWidget
         $this->clientOptions['mode'] = $this->mode;
 
         // if property is not set then try to determine automatically whether full version is needed
-        if (!isset($this->minimalist)) {
+        if ($this->minimalist === null) {
             $this->minimalist = $this->mode != 'code' && !in_array('code', $this->modes);
         }
+    }
+
+    /**
+     * Analyses input data and determines what should be used as value.
+     * This method must set `value` and `decodedValue` properties.
+     */
+    protected function determineValue()
+    {
+        // decodedValue property has first precedence
+        if ($this->decodedValue !== null) {
+            $this->value = Json::encode($this->decodedValue);
+            return;
+        }
+
+        // value property has second precedence
+        // options['value'] property has third precedence
+        if ($this->value === null && isset($this->options['value'])) {
+            $this->value = $this->options['value'];
+        }
+
+        // model attribute has fourth precedence
+        if ($this->value === null && $this->hasModel()) {
+            $this->value = Html::getAttributeValue($this->model, $this->attribute);
+        }
+
+        // value is not set anywhere, use default
+        if ($this->value === null) {
+            $this->value = $this->defaultValue;
+        }
+
+        $this->decodedValue = Json::decode($this->value, false);
     }
 
     /**
@@ -133,6 +167,7 @@ class JsonEditor extends InputWidget
     {
         $this->registerClientScript();
         if ($this->hasModel()) {
+            $this->options['value'] = $this->value; // model may contain decoded JSON, override value for rendering
             echo Html::activeHiddenInput($this->model, $this->attribute, $this->options);
         } else {
             echo Html::hiddenInput($this->name, $this->value, $this->options);
@@ -199,9 +234,11 @@ class JsonEditor extends InputWidget
             $this->clientOptions['onModeChange'] = new JsExpression($jsOnModeChange);
         }
 
-        $encodedValue = Json::htmlEncode(Json::decode($this->value, false));
+        $htmlEncodedValue = Json::htmlEncode($this->decodedValue); // Json::htmlEncode is needed to prevent XSS
         $jsCode = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
-            Json::htmlEncode($this->clientOptions) . ", $encodedValue);\n" .
+            Json::htmlEncode($this->clientOptions) . ");\n" .
+            "$editorName.set($htmlEncodedValue);\n" . // have to use set method,
+            // because constructor works wrong for 0, null; constructor turns them to {}, which may be wrong
             "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";
         if (in_array($this->mode, $this->collapseAll)) {
             $jsCode .= "\n$editorName.collapseAll();";
