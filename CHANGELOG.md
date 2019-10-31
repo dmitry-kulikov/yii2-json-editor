@@ -1,6 +1,21 @@
 Change Log
 ==========
 
+2.3.0 October 31, 2019
+----------------------
+
+- Enh: added optional property `decodedValue`, this property can be used instead of `value`.
+While `value` must be JSON string, `decodedValue` accepts decoded JSON, i.e. arrays, floats, booleans etc.
+`decodedValue` has precedence over `value`: if `decodedValue` is set then `value` will be ignored.
+- Bug #9: Allow overriding of model attribute value using explicit setting of `value` property for widget.
+- Bug #8: Allow overriding of model attribute value using options['inputOptions']['value'].
+- Bug #7: Strings '0', 'null' and '""' are valid JSON and should not be automatically replaced on {} or `defaultValue`.
+- Bug #6: Default value is ignored by "value" attribute of hidden input when Model is used.
+- Fixed minor issue with `clientOptions`: `onChangeJSON`, `onChangeText`, `onClassName`, `onNodeName`, `onValidate`,
+`onCreateMenu`, `schemaRefs`, `templates`, `autocomplete`, `onTextSelectionChange`, `onSelectionChange`, `onEvent`,
+`onColorPicker`, `languages` and `modalAnchor`.
+Now there is no need to use `JsExpression` for these options, extension will do it automatically.
+
 2.2.0 September 8, 2019
 -----------------------
 
@@ -35,7 +50,7 @@ This change may affect your design. You can specify custom height like this:
 1.0.2 August 27, 2016
 ---------------------
 
-- Fixed minor issue with `$clientOptions`: `ace`, `ajv` and `schema`.
+- Fixed minor issue with `clientOptions`: `ace`, `ajv` and `schema`.
 Now there is no need to use `JsExpression` for these options, extension will do it automatically.
 
 1.0.1 August 25, 2016

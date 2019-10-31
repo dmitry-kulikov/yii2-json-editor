@@ -87,7 +87,7 @@ class JsonEditorTest extends TestCase
         $html = JsonEditor::widget(
             [
                 'clientOptions' => [
-                    'modes' => ['code', 'form', 'text', 'tree', 'view'],
+                    'modes' => ['code', 'form', 'preview', 'text', 'tree', 'view'],
                     'mode' => 'view',
                     'onChange' => 'function () {console.log(this);}',
                     'onError' => 'function (error) {console.log(error);}',
@@ -116,12 +116,41 @@ class JsonEditorTest extends TestCase
             [
                 'id' => 'data',
                 'name' => 'data',
-                'value' => '{"script": "<script>alert(\"XSS\");</script>"}',
+                'value' => '{"script":"<script>alert(\"XSS\");</script>"}',
             ]
         );
         $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
+    }
+
+    public static function editorWidgetAndDefaultValueProvider()
+    {
+        return [
+            '0' => ['0', '0'],
+            'null' => ['null', 'null'],
+            '""' => ['""', '""'],
+            'empty string' => ['', 'default'],
+        ];
+    }
+
+    /**
+     * @param string $value
+     * @param string $expectedResult
+     * @covers       \kdn\yii2\JsonEditor
+     * @uses         \kdn\yii2\assets\JsonEditorAsset
+     * @dataProvider editorWidgetAndDefaultValueProvider
+     * @medium
+     */
+    public function testEditorWidgetAndDefaultValue($value, $expectedResult)
+    {
+        $html = JsonEditor::widget(
+            ['id' => 'data', 'name' => 'data', 'value' => $value, 'defaultValue' => '{"foo":"bar"}']
+        );
+        $fileRoot = __FUNCTION__ . '_' . $expectedResult;
+        $this->assertStringEqualsHtmlFile($fileRoot, $html);
+        $jsCodeBlock = reset(Yii::$app->view->js);
+        $this->assertStringEqualsJsFile($fileRoot, reset($jsCodeBlock));
     }
 
     /**
@@ -131,7 +160,7 @@ class JsonEditorTest extends TestCase
      */
     public function testEditorActiveWidgetAndDefaults()
     {
-        $html = static::catchOutput(
+        $html = OutputHelper::catchOutput(
             function () {
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
                 echo $form->field(new ModelMock, 'data')->widget(
@@ -153,10 +182,10 @@ class JsonEditorTest extends TestCase
      */
     public function testEditorActiveWidgetWithAttributeExpression()
     {
-        $html = static::catchOutput(
+        $html = OutputHelper::catchOutput(
             function () {
                 $model = new ModelMock;
-                $model->data = ['{}', '{"foo": "bar"}'];
+                $model->data = ['{}', '{"foo":"bar"}'];
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
                 echo $form->field($model, '[1]data[1]')->widget(
                     'kdn\yii2\JsonEditor',
@@ -168,5 +197,94 @@ class JsonEditorTest extends TestCase
         $this->assertStringEqualsHtmlFile(__FUNCTION__, $html);
         $jsCodeBlock = reset(Yii::$app->view->js);
         $this->assertStringEqualsJsFile(__FUNCTION__, reset($jsCodeBlock));
+    }
+
+    public static function editorActiveWidgetPrecedenceProvider()
+    {
+        return [
+            'decoded value' => [
+                ['precedence' => 1],
+                '{"precedence":2}',
+                '{"precedence":3}',
+                '{"precedence":4}',
+                '{"precedence":5}',
+                1,
+            ],
+            'value' => [
+                null,
+                '{"precedence":2}',
+                '{"precedence":3}',
+                '{"precedence":4}',
+                '{"precedence":5}',
+                2,
+            ],
+            "options['inputOptions']['value']" => [
+                null,
+                '',
+                '{"precedence":3}',
+                '{"precedence":4}',
+                '{"precedence":5}',
+                3,
+            ],
+            'model data' => [
+                null,
+                '',
+                null,
+                '{"precedence":4}',
+                '{"precedence":5}',
+                4,
+            ],
+            'default value' => [
+                null,
+                '',
+                null,
+                null,
+                '{"precedence":5}',
+                5,
+            ],
+        ];
+    }
+
+    /**
+     * @param mixed $decodedValue
+     * @param null|string $value
+     * @param null|string $inputOptionsValue
+     * @param null|string $modelData
+     * @param null|string $defaultValue
+     * @param int $expectedResult
+     * @covers       \kdn\yii2\JsonEditor
+     * @uses         \kdn\yii2\assets\JsonEditorAsset
+     * @dataProvider editorActiveWidgetPrecedenceProvider
+     * @medium
+     */
+    public function testEditorActiveWidgetPrecedence(
+        $decodedValue,
+        $value,
+        $inputOptionsValue,
+        $modelData,
+        $defaultValue,
+        $expectedResult
+    ) {
+        $html = OutputHelper::catchOutput(
+            function () use ($decodedValue, $value, $inputOptionsValue, $modelData, $defaultValue) {
+                $model = new ModelMock;
+                $model->data = ['{"foo":"bar"}', $modelData];
+                $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
+                echo $form->field($model, '[1]data[1]', ['inputOptions' => ['value' => $inputOptionsValue]])->widget(
+                    'kdn\yii2\JsonEditor',
+                    [
+                        'decodedValue' => $decodedValue,
+                        'value' => $value,
+                        'defaultValue' => $defaultValue,
+                        'options' => ['class' => false],
+                    ]
+                );
+                ActiveForm::end();
+            }
+        )['output'];
+        $fileRoot = __FUNCTION__ . '_' . $expectedResult;
+        $this->assertStringEqualsHtmlFile($fileRoot, $html);
+        $jsCodeBlock = reset(Yii::$app->view->js);
+        $this->assertStringEqualsJsFile($fileRoot, reset($jsCodeBlock));
     }
 }

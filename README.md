@@ -42,62 +42,51 @@ Minimal example:
 
 use kdn\yii2\JsonEditor;
 
-echo JsonEditor::widget(['name' => 'editor']);
+echo JsonEditor::widget(['name' => 'editor', 'value' => '{"foo": "bar"}']);
 ```
 
-with some options:
+Alternatively you can pass already decoded JSON:
 
 ```php
 <?php
 
 use kdn\yii2\JsonEditor;
 
+echo JsonEditor::widget(['name' => 'editor', 'decodedValue' => ['foo' => 'bar']]);
+```
+
+With some options:
+
+```php
 echo JsonEditor::widget(
     [
         // JSON editor options
         'clientOptions' => [
-            'modes' => ['code', 'form', 'text', 'tree', 'view'], // available modes
+            'modes' => ['code', 'form', 'preview', 'text', 'tree', 'view'], // all available modes
             'mode' => 'tree', // default mode
-            'onModeChange' => 'function (newMode, oldMode) {console.log(this, newMode, oldMode);}',
+            'onModeChange' => 'function (newMode, oldMode) {
+                console.log(this, newMode, oldMode);
+            }',
         ],
         'collapseAll' => ['view'], // collapse all fields in "view" mode
         'containerOptions' => ['class' => 'container'], // HTML options for JSON editor container tag
         'expandAll' => ['tree', 'form'], // expand all fields in "tree" and "form" modes
         'name' => 'editor', // hidden input name
         'options' => ['id' => 'data'], // HTML options for hidden input
-        'value' => $json, // JSON which should be shown in editor
+        'value' => '{"foo": "bar"}', // JSON which should be shown in editor
     ]
 );
 ```
 
-with ActiveForm and Model:
+With ActiveForm and ActiveRecord:
 
 ```php
-<?php
-
-use kdn\yii2\JsonEditor;
-
 echo $form->field($model, 'data')->widget(
     JsonEditor::class,
     [
         'clientOptions' => ['modes' => ['code', 'tree']],
-    ]
-);
-```
-
-compact viewer expandable on demand:
-
-```php
-<?php
-
-use kdn\yii2\JsonEditor;
-
-echo JsonEditor::widget(
-    [
-        'clientOptions' => ['mode' => 'view'],
-        'collapseAll' => ['view'],
-        'name' => 'viewer',
-        'value' => $json,
+        'decodedValue' => $model->data, /* if attribute contains already decoded JSON,
+        then you should pass it as shown, otherwise omit this line */
     ]
 );
 ```
@@ -108,6 +97,39 @@ To get instance of JSON editor on client side you can use the following JavaScri
 var jsonEditor = window[$('#YOUR-HIDDEN-INPUT-ID').data('json-editor-name')];
 jsonEditor.set({"foo": "bar"});
 ```
+
+How to set `id` for hidden input:
+
+```php
+echo JsonEditor::widget(
+    [
+        'name' => 'editor',
+        'options' => ['id' => 'YOUR-HIDDEN-INPUT-ID'],
+        'value' => '{}'
+    ]
+);
+```
+
+All possible ways to pass data and their precedence:
+
+```php
+$model->data = '{"precedence": 4}';
+echo $form->field(
+    $model,
+    'data',
+    ['inputOptions' => ['value' => '{"precedence": 3}']]
+)->widget(
+    'kdn\yii2\JsonEditor',
+    [
+        'decodedValue' => ['precedence' => 1],
+        'value' => '{"precedence": 2}',
+        'defaultValue' => '{"precedence": 5}',
+    ]
+);
+```
+
+For code above widget will show `{"precedence": 1}`.
+If `decodedValue` is not set then widget will show `{"precedence": 2}` etc.
 
 Please view public properties in class
 [JsonEditor](https://github.com/dmitry-kulikov/yii2-json-editor/blob/master/src/JsonEditor.php)

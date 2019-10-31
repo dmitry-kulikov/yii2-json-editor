@@ -23,7 +23,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     /**
      * Clean up after test.
-     * By default the application created with [[mockWebApplication]] will be destroyed.
+     * By default the application created with `mockWebApplication` will be destroyed.
      */
     protected function tearDown()
     {
@@ -88,21 +88,21 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     /**
      * Asserts that the contents of a string is equal to the contents of a HTML file.
-     * @param string $methodName name of test method
+     * @param string $fileRoot name of file without extension, "stem"
      * @param string $actualString
      * @param string $message
      * @param bool $canonicalize
      * @param bool $ignoreCase
      */
     public static function assertStringEqualsHtmlFile(
-        $methodName,
+        $fileRoot,
         $actualString,
         $message = '',
         $canonicalize = false,
         $ignoreCase = false
     ) {
         static::assertStringEqualsFile(
-            __DIR__ . "/expected/$methodName.html",
+            __DIR__ . "/expected/$fileRoot.html",
             $actualString,
             $message,
             $canonicalize,
@@ -112,50 +112,25 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 
     /**
      * Asserts that the contents of a string is equal to the contents of a JavaScript file.
-     * @param string $methodName name of test method
+     * @param string $fileRoot name of file without extension, "stem"
      * @param string $actualString
      * @param string $message
      * @param bool $canonicalize
      * @param bool $ignoreCase
      */
     public static function assertStringEqualsJsFile(
-        $methodName,
+        $fileRoot,
         $actualString,
         $message = '',
         $canonicalize = false,
         $ignoreCase = false
     ) {
         static::assertStringEqualsFile(
-            __DIR__ . "/expected/$methodName.js",
+            __DIR__ . "/expected/$fileRoot.js",
             $actualString,
             $message,
             $canonicalize,
             $ignoreCase
         );
-    }
-
-    /**
-     * Call a user function given with an array of parameters and catch its output.
-     * @param callable $callback function to be called
-     * @param array $arguments parameters to be passed to the function, as an indexed array
-     * @return array array containing result returned by function and its output.
-     * @throws \Exception
-     */
-    public static function catchOutput($callback, $arguments = [])
-    {
-        $result = [];
-        ob_start();
-        ob_implicit_flush(false);
-        try {
-            $result['result'] = call_user_func_array($callback, $arguments);
-        } catch (\Exception $e) {
-            // close the output buffer opened above if it has not been closed already
-            if (ob_get_level() > 0) {
-                ob_end_clean();
-            }
-            throw $e;
-        }
-        $result['output'] = ob_get_clean();
-        return $result;
     }
 }

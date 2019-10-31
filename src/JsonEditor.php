@@ -143,21 +143,30 @@ class JsonEditor extends InputWidget
 
         // value property has second precedence
         // options['value'] property has third precedence
-        if ($this->value === null && isset($this->options['value'])) {
+        if (!$this->issetValue() && isset($this->options['value'])) {
             $this->value = $this->options['value'];
         }
 
         // model attribute has fourth precedence
-        if ($this->value === null && $this->hasModel()) {
+        if (!$this->issetValue() && $this->hasModel()) {
             $this->value = Html::getAttributeValue($this->model, $this->attribute);
         }
 
         // value is not set anywhere, use default
-        if ($this->value === null) {
+        if (!$this->issetValue()) {
             $this->value = $this->defaultValue;
         }
 
         $this->decodedValue = Json::decode($this->value, false);
+    }
+
+    /**
+     * Check whether `value` property is set. For JSON string the empty string is considered as equivalent of null.
+     * @return bool whether `value` property is set.
+     */
+    protected function issetValue()
+    {
+        return $this->value !== null && $this->value !== '';
     }
 
     /**
@@ -238,7 +247,7 @@ class JsonEditor extends InputWidget
         $jsCode = "$editorName = new JSONEditor(document.getElementById('{$this->containerOptions['id']}'), " .
             Json::htmlEncode($this->clientOptions) . ");\n" .
             "$editorName.set($htmlEncodedValue);\n" . // have to use set method,
-            // because constructor works wrong for 0, null; constructor turns them to {}, which may be wrong
+            // because constructor works wrong for '0', 'null', '""'; constructor turns them to {}, which may be wrong
             "jQuery('#$hiddenInputId').parents('form').submit(function() {{$jsUpdateHiddenField}});";
         if (in_array($this->mode, $this->collapseAll)) {
             $jsCode .= "\n$editorName.collapseAll();";
