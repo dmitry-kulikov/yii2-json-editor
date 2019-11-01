@@ -113,22 +113,23 @@ echo JsonEditor::widget(
 All possible ways to pass data and their precedence:
 
 ```php
-$model->data = '{"precedence": 4}';
+$model->data = '{"precedence": 5}';
 echo $form->field(
     $model,
     'data',
-    ['inputOptions' => ['value' => '{"precedence": 3}']]
+    ['inputOptions' => ['value' => '{"precedence": 4}']]
 )->widget(
     'kdn\yii2\JsonEditor',
     [
         'decodedValue' => ['precedence' => 1],
         'value' => '{"precedence": 2}',
-        'defaultValue' => '{"precedence": 5}',
+        'options' => ['value' => '{"precedence": 3}'],
+        'defaultValue' => '{"precedence": 6}',
     ]
 );
 ```
 
-For code above widget will show `{"precedence": 1}`.
+For code above widget will show `{"precedence": 1}`.  
 If `decodedValue` is not set then widget will show `{"precedence": 2}` etc.
 
 Please view public properties in class

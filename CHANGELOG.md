@@ -1,7 +1,7 @@
 Change Log
 ==========
 
-2.3.0 October 31, 2019
+2.3.0 November 1, 2019
 ----------------------
 
 - Enh: added optional property `decodedValue`, this property can be used instead of `value`.
