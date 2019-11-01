@@ -12,7 +12,7 @@ This widget uses JSON editor [josdejong/jsoneditor](https://github.com/josdejong
 
 # Requirements
 
-- PHP 5.4 or later or HHVM;
+- PHP 5.4 or later or HHVM 3;
 - Yii framework 2.
 
 # Installation
