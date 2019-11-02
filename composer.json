@@ -46,9 +46,9 @@
             },
             "pattern-skip-version": "(-build|-patch)",
             "repositories": {
-                "npm-asset/brace": {
+                "npm-asset/ace-builds": {
                     "type": "npm-vcs",
-                    "url": "https://github.com/thlorenz/brace.git",
+                    "url": "https://github.com/ajaxorg/ace-builds.git",
                     "no-api": true
                 },
                 "npm-asset/fast-json-stable-stringify": {
