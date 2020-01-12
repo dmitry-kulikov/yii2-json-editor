@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+2.4.0 January 12, 2020
+----------------------
+
+- Enh: Updated npm-asset/jsoneditor version constraint to allow version 8.
+- Fixed minor issue with `clientOptions`: `onBlur`, `onFocus`, `onValidationError`, `popupAnchor`,
+`timestampFormat` and `timestampTag`.
+Now there is no need to use `JsExpression` for these options, extension will do it automatically.
+
 2.3.0 November 1, 2019
 ----------------------
 
@@ -11,9 +19,9 @@ While `value` must be JSON string, `decodedValue` accepts decoded JSON, i.e. arr
 - Bug #8: Allow overriding of model attribute value using options['inputOptions']['value'].
 - Bug #7: Strings '0', 'null' and '""' are valid JSON and should not be automatically replaced on {} or `defaultValue`.
 - Bug #6: Default value is ignored by "value" attribute of hidden input when Model is used.
-- Fixed minor issue with `clientOptions`: `onChangeJSON`, `onChangeText`, `onClassName`, `onNodeName`, `onValidate`,
-`onCreateMenu`, `schemaRefs`, `templates`, `autocomplete`, `onTextSelectionChange`, `onSelectionChange`, `onEvent`,
-`onColorPicker`, `languages` and `modalAnchor`.
+- Fixed minor issue with `clientOptions`: `autocomplete`, `languages`, `modalAnchor`, `onChange`, `onChangeJSON`,
+`onChangeText`, `onClassName`, `onColorPicker`, `onCreateMenu`, `onEditable`, `onError`, `onEvent`, `onModeChange`,
+`onNodeName`, `onSelectionChange`, `onTextSelectionChange`, `onValidate`, `schemaRefs` and `templates`.
 Now there is no need to use `JsExpression` for these options, extension will do it automatically.
 
 2.2.0 September 8, 2019
