@@ -19,7 +19,7 @@ class OutputHelper
     {
         $obInitialLevel = ob_get_level();
         ob_start();
-        ob_implicit_flush(false);
+        ob_implicit_flush(0);
         try {
             return [
                 'result' => call_user_func_array($callback, $arguments),

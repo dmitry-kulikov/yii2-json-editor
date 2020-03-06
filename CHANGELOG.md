@@ -44,6 +44,7 @@ Now there is no need to use `JsExpression` for these options, extension will do 
 
 - Chg: Removed inline style `height: 250px;` to simplify specification of custom height.
 This change may affect your design. You can specify custom height like this:
+
     ```css
     div.jsoneditor {
         height: 250px;
