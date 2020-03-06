@@ -6,7 +6,7 @@
 
 ### Additional info
 
-| Q                   | A 
+| Q                   | A
 |---------------------|---
 | Extension version   | 
 | Yii version         | 

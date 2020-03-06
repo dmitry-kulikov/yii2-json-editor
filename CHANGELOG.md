@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2.4.1 March 6, 2020
+-------------------
+
+- Added possibility to run tests using Docker and documentation for this.
+
 2.4.0 January 12, 2020
 ----------------------
 

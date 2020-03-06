@@ -3,5 +3,6 @@
 /coverage
 /phpunit.xml
 /phpunit.xml.backup
+/tests/composer/auth.json
 /TODO.txt
 /vendor

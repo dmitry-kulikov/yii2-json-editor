@@ -1,0 +1,9 @@
+{
+    "bitbucket-oauth": {},
+    "github-oauth": {
+        "github.com": "YOUR_GITHUB_OAUTH_TOKEN"
+    },
+    "gitlab-oauth": {},
+    "gitlab-token": {},
+    "http-basic": {}
+}

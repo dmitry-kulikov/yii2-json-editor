@@ -1,6 +1,6 @@
 <?php
 
-// ensure we get report on all possible php errors
+// ensure we get report on all possible PHP errors
 error_reporting(-1);
 
 $vendorPath = dirname(__DIR__) . '/vendor';

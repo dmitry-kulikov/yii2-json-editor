@@ -1,0 +1,117 @@
+version: '3.7'
+
+x-composer-suffix-5-6: &composer-suffix-5-6
+  COMPOSER_SUFFIX: '5.6'
+x-composer-suffix-7-2: &composer-suffix-7-2
+  COMPOSER_SUFFIX: '7.2'
+x-composer-suffix-7-4: &composer-suffix-7-4
+  COMPOSER_SUFFIX: '7.4'
+
+x-context: &context
+  context: .
+
+x-defaults: &defaults
+  tty: true
+
+x-volume-composer-cache: &volume-composer-cache ./tests/composer/cache:/root/.composer/cache
+x-volume-source: &volume-source .:/usr/src/yii2-json-editor
+
+services:
+  '5.6':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-5-6
+        PHP_VERSION: '5.6-cli'
+      target: debian-runkit
+    image: yii2-json-editor-5.6
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-5.6:/usr/src/yii2-json-editor/coverage
+      - vendor-5.6:/usr/src/yii2-json-editor/vendor
+  '5.6-alpine':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-5-6
+        PHP_VERSION: '5.6-cli-alpine'
+      target: alpine
+    image: yii2-json-editor-5.6-alpine
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-5.6-alpine:/usr/src/yii2-json-editor/coverage
+      - vendor-5.6-alpine:/usr/src/yii2-json-editor/vendor
+  '7.2':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-7-2
+        PHP_VERSION: '7.2-cli'
+      target: debian-runkit7
+    image: yii2-json-editor-7.2
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-7.2:/usr/src/yii2-json-editor/coverage
+      - vendor-7.2:/usr/src/yii2-json-editor/vendor
+  '7.2-alpine':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-7-2
+        PHP_VERSION: '7.2-cli-alpine'
+      target: alpine
+    image: yii2-json-editor-7.2-alpine
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-7.2-alpine:/usr/src/yii2-json-editor/coverage
+      - vendor-7.2-alpine:/usr/src/yii2-json-editor/vendor
+  '7.4':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-7-4
+        PHP_VERSION: '7.4-cli'
+      target: debian-runkit7
+    image: yii2-json-editor-7.4
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-7.4:/usr/src/yii2-json-editor/coverage
+      - vendor-7.4:/usr/src/yii2-json-editor/vendor
+  '7.4-alpine':
+    <<: *defaults
+    build:
+      <<: *context
+      args:
+        <<: *composer-suffix-7-4
+        PHP_VERSION: '7.4-cli-alpine'
+      target: alpine
+    image: yii2-json-editor-7.4-alpine
+    volumes:
+      - *volume-composer-cache
+      - *volume-source
+      - coverage-7.4-alpine:/usr/src/yii2-json-editor/coverage
+      - vendor-7.4-alpine:/usr/src/yii2-json-editor/vendor
+
+volumes:
+  coverage-5.6:
+  coverage-5.6-alpine:
+  coverage-7.2:
+  coverage-7.2-alpine:
+  coverage-7.4:
+  coverage-7.4-alpine:
+  vendor-5.6:
+  vendor-5.6-alpine:
+  vendor-7.2:
+  vendor-7.2-alpine:
+  vendor-7.4:
+  vendor-7.4-alpine:

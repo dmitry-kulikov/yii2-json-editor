@@ -1,21 +1,53 @@
----
-engines:
-    duplication:
-        enabled: true
-        config:
-            languages:
-                - php
-    fixme:
-        enabled: true
-    phpmd:
-        enabled: true
-        checks:
-            CleanCode/ElseExpression:
-                enabled: false
-            CleanCode/StaticAccess:
-                enabled: false
-ratings:
-    paths:
-        - "**.php"
-exclude_paths:
-    - tests/
+version: "2"
+
+plugins:
+  # official plugins
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - php:
+  fixme:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
+    config:
+      standard: "PSR2" # todo replace with PSR12 when Code Climate adds it
+  phpmd:
+    enabled: true
+    checks:
+      CleanCode/ElseExpression:
+        enabled: false
+      CleanCode/StaticAccess:
+        enabled: false
+  sonar-php:
+    enabled: true
+    config:
+      tests_patterns:
+        - "tests/**"
+
+  # community-supported plugins
+  markdownlint:
+    enabled: true
+    checks:
+      MD001: # Header levels should only increment by one level at a time
+        enabled: false
+      MD002: # First header should be a top level header
+        enabled: false
+      MD024: # Multiple headers with the same content
+        enabled: false
+      MD025: # Multiple top level headers in the same document
+        enabled: false
+      MD026: # Trailing punctuation in header
+        enabled: false
+  phan:
+    enabled: true
+    config:
+      file_extensions: "php"
+      backward-compatibility-checks: true
+      dead-code-detection: true
+  shellcheck:
+    enabled: true
+
+exclude_patterns:
+  - "tests/"

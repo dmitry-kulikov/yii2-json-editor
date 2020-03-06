@@ -163,7 +163,7 @@ class JsonEditorTest extends TestCase
         $html = OutputHelper::catchOutput(
             function () {
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
-                echo $form->field(new ModelMock, 'data')->widget(
+                echo $form->field(new ModelMock(), 'data')->widget(
                     'kdn\yii2\JsonEditor',
                     ['expandAll' => ['tree'], 'options' => ['class' => false]]
                 );
@@ -184,7 +184,7 @@ class JsonEditorTest extends TestCase
     {
         $html = OutputHelper::catchOutput(
             function () {
-                $model = new ModelMock;
+                $model = new ModelMock();
                 $model->data = ['{}', '{"foo":"bar"}'];
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
                 echo $form->field($model, '[1]data[1]')->widget(
@@ -267,7 +267,7 @@ class JsonEditorTest extends TestCase
     ) {
         $html = OutputHelper::catchOutput(
             function () use ($decodedValue, $value, $inputOptionsValue, $modelData, $defaultValue) {
-                $model = new ModelMock;
+                $model = new ModelMock();
                 $model->data = ['{"foo":"bar"}', $modelData];
                 $form = ActiveForm::begin(['id' => 'data-form', 'action' => 'test', 'options' => ['csrf' => false]]);
                 echo $form->field($model, '[1]data[1]', ['inputOptions' => ['value' => $inputOptionsValue]])->widget(
