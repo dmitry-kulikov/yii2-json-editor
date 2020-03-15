@@ -74,6 +74,8 @@ class JsonEditor extends InputWidget
         'ace',
         'ajv',
         'autocomplete',
+        'createQuery',
+        'executeQuery',
         'languages',
         'modalAnchor',
         'onBlur',

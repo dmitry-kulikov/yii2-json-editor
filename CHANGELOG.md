@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+2.4.2 March 15, 2020
+--------------------
+
+- Fixed minor issue with `clientOptions`: `createQuery` and `executeQuery`.
+  Now there is no need to use `JsExpression` for these options, extension will do it automatically.
+
 2.4.1 March 6, 2020
 -------------------
 
