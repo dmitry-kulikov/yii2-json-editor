@@ -1,6 +1,11 @@
 Change Log
 ==========
 
+2.4.3 March 23, 2020
+--------------------
+
+- Bug: Cannot install package on Windows using Composer because of forbidden characters in some file names.
+
 2.4.2 March 15, 2020
 --------------------
 

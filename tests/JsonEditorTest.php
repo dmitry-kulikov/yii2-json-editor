@@ -129,7 +129,7 @@ class JsonEditorTest extends TestCase
         return [
             '0' => ['0', '0'],
             'null' => ['null', 'null'],
-            '""' => ['""', '""'],
+            '""' => ['""', 'empty_json_string'],
             'empty string' => ['', 'default'],
         ];
     }
