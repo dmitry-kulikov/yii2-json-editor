@@ -119,7 +119,7 @@ echo $form->field(
     'data',
     ['inputOptions' => ['value' => '{"precedence": 4}']]
 )->widget(
-    'kdn\yii2\JsonEditor',
+    JsonEditor::class,
     [
         'decodedValue' => ['precedence' => 1],
         'value' => '{"precedence": 2}',
