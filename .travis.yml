@@ -22,7 +22,7 @@ jobs:
 install:
   - composer self-update
   - composer global require 'fxp/composer-asset-plugin:*'
-  - composer update --no-interaction --prefer-source
+  - composer update --no-interaction --prefer-dist
   - |
     COVERAGE_PHP_VERSION='5.6'
     if [ $TRAVIS_PHP_VERSION = $COVERAGE_PHP_VERSION ]; then
