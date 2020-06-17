@@ -61,6 +61,11 @@
                     "url": "https://github.com/epoberezkin/fast-json-stable-stringify.git",
                     "no-api": true
                 },
+                "npm-asset/github-url-from-username-repo": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/robertkowalski/github-url-from-username-repo.git",
+                    "no-api": true
+                },
                 "npm-asset/jmespath": {
                     "type": "npm-vcs",
                     "url": "https://github.com/jmespath/jmespath.js.git",
