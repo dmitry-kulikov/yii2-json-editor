@@ -1,5 +1,6 @@
 # syntax=docker/dockerfile:1.1.3-experimental
 
+# PHP version
 # examples of allowed values: 5.6-cli, 5.6-cli-alpine, 7.2-cli, 7.2-cli-alpine
 # and other tags from https://hub.docker.com/_/php
 ARG PHP_VERSION=5.6-cli
@@ -21,7 +22,7 @@ RUN chmod a+x /usr/local/bin/install-php-extensions \
 
 WORKDIR /usr/src/yii2-json-editor
 
-# install composer
+# install Composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && ln -s "$(pwd)/tests/composer/auth.json" /root/.composer/auth.json
@@ -32,9 +33,9 @@ FROM default AS alpine
 # install packages
 RUN apk update \
     && apk add \
-        git `# for composer`
+        git `# for Composer`
 
-# install dependencies using composer
+# install dependencies using Composer
 COPY tests/composer/composer-${COMPOSER_SUFFIX}.* ./
 RUN --mount=type=bind,target=tests/composer/auth.json,source=tests/composer/auth.json \
     --mount=type=cache,id=composer,target=/root/.composer/cache,sharing=locked \
@@ -50,7 +51,7 @@ RUN apt-get update \
         git `# for composer` \
         unzip `# for composer`
 
-# install dependencies using composer
+# install dependencies using Composer
 COPY tests/composer/composer-${COMPOSER_SUFFIX}.* ./
 RUN --mount=type=bind,target=tests/composer/auth.json,source=tests/composer/auth.json \
     --mount=type=cache,id=composer,target=/root/.composer/cache,sharing=locked \
