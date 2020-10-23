@@ -169,7 +169,7 @@ however if you have doubts about security or you are lazy to generate token then
 Build image for service:
 
 ```sh
-docker buildx bake --pull 7.4
+docker buildx bake --pull --load 7.4
 ```
 
 This command will build image using PHP 7.4. Also allowed `7.4-alpine`, `5.6`, `5.6-alpine` and others, see services
@@ -210,5 +210,5 @@ docker-compose down
 You may want to remove volumes along with containers:
 
 ```sh
-docker-compose down --volume
+docker-compose down --volumes
 ```

@@ -3,8 +3,9 @@
 # This script can be executed in Docker container to update composer dependencies and composer.lock for specified
 # version of PHP.
 
+cd "$(dirname "$0")" || exit
+BASE_PATH="$(pwd)"
 LATEST_COMPOSER_SUFFIX='7.4'
-BASE_PATH="$(dirname "$0")"
 COMPOSER_LOCK_TO_UPDATE="${BASE_PATH}/composer-${COMPOSER_SUFFIX}.lock"
 
 # change directory to directory containing composer.json

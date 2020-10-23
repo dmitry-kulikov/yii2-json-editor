@@ -315,11 +315,11 @@
         },
         {
             "name": "npm-asset/ajv",
-            "version": "6.12.5",
+            "version": "6.12.6",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/ajv/-/ajv-6.12.5.tgz",
-                "shasum": "19b0e8bae8f476e5ba666300387775fb1a00a4da"
+                "url": "https://registry.npmjs.org/ajv/-/ajv-6.12.6.tgz",
+                "shasum": "baf5a62e802b07d977034586f8c3baf5adf26df4"
             },
             "require": {
                 "npm-asset/fast-deep-equal": ">=3.1.1,<4.0.0",
@@ -378,7 +378,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-09-13T16:23:15+00:00"
+            "time": "2020-10-10T17:01:40+00:00"
         },
         {
             "name": "npm-asset/fast-deep-equal",
@@ -2288,16 +2288,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.18.1",
+            "version": "v1.19.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454"
+                "reference": "aed596913b70fae57be53d86faa2e9ef85a2297b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/1c302646f6efc070cd46856e600e5e0684d6b454",
-                "reference": "1c302646f6efc070cd46856e600e5e0684d6b454",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/aed596913b70fae57be53d86faa2e9ef85a2297b",
+                "reference": "aed596913b70fae57be53d86faa2e9ef85a2297b",
                 "shasum": ""
             },
             "require": {
@@ -2309,7 +2309,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.18-dev"
+                    "dev-main": "1.19-dev"
                 },
                 "thanks": {
                     "name": "symfony/polyfill",
@@ -2360,7 +2360,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-14T12:35:20+00:00"
+            "time": "2020-10-23T09:01:57+00:00"
         },
         {
             "name": "symfony/yaml",
