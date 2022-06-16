@@ -3,12 +3,12 @@ build:
     analysis:
       tests:
         override:
-          - php-scrutinizer-run
+          - 'php-scrutinizer-run'
 
 filter:
   dependency_paths:
-    - vendor/
+    - 'vendor/'
 
 tools:
   external_code_coverage: true
-  # timeout: 600 # default timeout in seconds
+  # timeout: 300 # default timeout in seconds

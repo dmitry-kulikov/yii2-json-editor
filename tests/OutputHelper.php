@@ -27,9 +27,12 @@ class OutputHelper
             ];
         } catch (\Exception $e) {
             static::exceptionHandler($obInitialLevel);
+
             throw $e;
-        } catch (\Throwable $e) { // before PHP 7, \Exception did not implement the \Throwable interface
+        } /* @noinspection PhpElementIsNotAvailableInCurrentPhpVersionInspection */ catch (\Throwable $e) {
+            // additional check for \Throwable introduced in PHP 7
             static::exceptionHandler($obInitialLevel);
+
             throw $e;
         }
     }

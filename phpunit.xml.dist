@@ -1,27 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- attributes "beStrictAboutTestSize" and "checkForUnintentionallyCoveredCode" are used by old versions of PHPUnit -->
 <phpunit
         bootstrap="tests/bootstrap.php"
 
         beStrictAboutChangesToGlobalState="true"
+        beStrictAboutCoversAnnotation="true"
         beStrictAboutOutputDuringTests="true"
+        beStrictAboutResourceUsageDuringSmallTests="true"
         beStrictAboutTestSize="true"
         beStrictAboutTestsThatDoNotTestAnything="true"
         beStrictAboutTodoAnnotatedTests="true"
         checkForUnintentionallyCoveredCode="true"
-
         colors="true"
+        convertDeprecationsToExceptions="true"
         convertErrorsToExceptions="true"
         convertNoticesToExceptions="true"
         convertWarningsToExceptions="true"
+        enforceTimeLimit="true"
+        forceCoversAnnotation="true"
         verbose="true">
     <testsuites>
         <testsuite name="Yii 2 JSON Editor">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
+    <!-- element "filter" is used by old versions of PHPUnit -->
     <filter>
         <whitelist>
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
 </phpunit>

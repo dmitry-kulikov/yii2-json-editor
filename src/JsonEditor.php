@@ -38,7 +38,7 @@ class JsonEditor extends InputWidget
 
     /**
      * @var mixed this property can be used instead of `value`;
-     * while `value` must be JSON string, `decodedValue` accepts decoded JSON, i.e. arrays, floats, booleans etc.;
+     * while `value` must be JSON string, `decodedValue` accepts decoded JSON, i.e. arrays, floats, booleans, etc.;
      * `decodedValue` has precedence over `value`: if `decodedValue` is set then `value` will be ignored
      * @see value
      */
@@ -85,6 +85,7 @@ class JsonEditor extends InputWidget
         'onClassName',
         'onColorPicker',
         'onCreateMenu',
+        'onExpand',
         'onEditable',
         'onError',
         'onEvent',
@@ -146,6 +147,7 @@ class JsonEditor extends InputWidget
         // decodedValue property has first precedence
         if ($this->decodedValue !== null) {
             $this->value = Json::encode($this->decodedValue);
+
             return;
         }
 

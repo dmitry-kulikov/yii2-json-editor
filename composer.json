@@ -1,6 +1,7 @@
 {
     "name": "kdn/yii2-json-editor",
     "description": "JSON editor widget (josdejong/jsoneditor) for Yii 2.",
+    "type": "yii2-extension",
     "keywords": [
         "yii2",
         "extension",
@@ -11,8 +12,7 @@
         "viewer",
         "formatter"
     ],
-    "homepage": "https://github.com/dmitry-kulikov/yii2-json-editor",
-    "type": "yii2-extension",
+    "readme": "./README.md",
     "license": "MIT",
     "authors": [
         {
@@ -20,8 +20,10 @@
             "email": "kulikovdn@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/dmitry-kulikov/yii2-json-editor/issues",
+        "source": "https://github.com/dmitry-kulikov/yii2-json-editor"
+    },
     "require": {
         "php": ">=5.4.0",
 
@@ -29,60 +31,11 @@
         "yiisoft/yii2": "2.*"
     },
     "require-dev": {
-        "phpunit/phpunit": "4.*",
-        "phpunit/php-invoker": "1.*"
+        "phpunit/phpunit": ">=4.0 <10.0",
+        "phpunit/php-invoker": ">=1.0 <4.0"
     },
     "suggest": {
         "ext-runkit": "this extension is needed to run all tests, otherwise some tests will be skipped"
-    },
-    "config": {
-        "fxp-asset": {
-            "installer-paths": {
-                "bower-asset-library": "vendor/bower",
-                "npm-asset-library": "vendor/npm"
-            },
-            "vcs-driver-options": {
-                "github-no-api": true
-            },
-            "pattern-skip-version": "(-build|-patch)",
-            "repositories": {
-                "npm-asset/ace-builds": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/ajaxorg/ace-builds.git",
-                    "no-api": true
-                },
-                "npm-asset/babel-runtime": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/babel/babel.git",
-                    "no-api": true
-                },
-                "npm-asset/fast-json-stable-stringify": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/epoberezkin/fast-json-stable-stringify.git",
-                    "no-api": true
-                },
-                "npm-asset/github-url-from-username-repo": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/robertkowalski/github-url-from-username-repo.git",
-                    "no-api": true
-                },
-                "npm-asset/jmespath": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/jmespath/jmespath.js.git",
-                    "no-api": true
-                },
-                "npm-asset/jsonfile": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/jprichardson/node-jsonfile.git",
-                    "no-api": true
-                },
-                "npm-asset/uri-js": {
-                    "type": "npm-vcs",
-                    "url": "https://github.com/garycourt/uri-js.git",
-                    "no-api": true
-                }
-            }
-        }
     },
     "autoload": {
         "psr-4": {
@@ -92,6 +45,47 @@
     "autoload-dev": {
         "psr-4": {
             "kdn\\yii2\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "fxp-asset": {
+            "installer-paths": {
+                "bower-asset-library": "vendor/bower",
+                "npm-asset-library": "vendor/npm"
+            },
+            "pattern-skip-version": "(-build|-patch)",
+            "repositories": {
+                "npm-asset/ajv": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/ajv-validator/ajv.git",
+                    "no-api": true
+                },
+                "npm-asset/babel-runtime": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/babel/babel.git",
+                    "no-api": true
+                },
+                "npm-asset/brace": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/thlorenz/brace.git",
+                    "no-api": true
+                },
+                "npm-asset/fast-json-stable-stringify": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/epoberezkin/fast-json-stable-stringify.git",
+                    "no-api": true
+                },
+                "npm-asset/jmespath": {
+                    "type": "npm-vcs",
+                    "url": "https://github.com/jmespath/jmespath.js.git",
+                    "no-api": true
+                }
+            },
+            "vcs-driver-options": {
+                "github-no-api": true
+            }
         }
     }
 }

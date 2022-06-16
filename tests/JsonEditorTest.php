@@ -63,18 +63,29 @@ class JsonEditorTest extends TestCase
      * @covers       \kdn\yii2\JsonEditor
      * @dataProvider assetDevelopmentProvider
      * @medium
+     * @throws \Exception
      */
     public function testAssetDevelopment($css, $minimalistJs, $fullJs)
     {
-        if (!function_exists('runkit_constant_redefine')) {
+        $runkitFunctionName = null;
+        if (function_exists('runkit7_constant_redefine')) {
+            $runkitFunctionName = 'runkit7_constant_redefine';
+        } elseif (function_exists('runkit_constant_redefine')) {
+            $runkitFunctionName = 'runkit_constant_redefine';
+        }
+
+        if ($runkitFunctionName === null) {
             $this->markTestSkipped('runkit extension required.');
-            return;
         }
 
         $yiiEnvDev = YII_ENV_DEV;
-        runkit_constant_redefine('YII_ENV_DEV', true);
+        if (!$runkitFunctionName('YII_ENV_DEV', true)) {
+            $this->markTestSkipped('Cannot redefine constant "YII_ENV_DEV".');
+        }
         $this->testAsset($css, $minimalistJs, $fullJs);
-        runkit_constant_redefine('YII_ENV_DEV', $yiiEnvDev);
+        if (!$runkitFunctionName('YII_ENV_DEV', $yiiEnvDev)) {
+            throw new \Exception('Cannot restore value of constant "YII_ENV_DEV".');
+        }
     }
 
     /**

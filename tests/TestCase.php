@@ -14,26 +14,26 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
 {
     /**
      * Mock Yii application.
+     * @before
      */
-    protected function setUp()
+    protected function prepare()
     {
-        parent::setUp();
         static::mockWebApplication();
     }
 
     /**
      * Clean up after test.
-     * By default the application created with `mockWebApplication` will be destroyed.
+     * By default, the application created with `mockWebApplication` will be destroyed.
+     * @after
      */
-    protected function tearDown()
+    protected function clear()
     {
-        parent::tearDown();
         static::destroyApplication();
     }
 
     /**
      * Populates Yii::$app with a new application.
-     * The application will be destroyed on tearDown() automatically.
+     * The application will be destroyed on clear() automatically.
      * @param array $config the application configuration, if needed
      * @param string $appClass name of the application class to create
      */
@@ -87,7 +87,7 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Asserts that the contents of a string is equal to the contents of a HTML file.
+     * Asserts that the contents of a string is equal to the contents of an HTML file.
      * @param string $fileRoot name of file without extension, "stem"
      * @param string $actualString
      * @param string $message
