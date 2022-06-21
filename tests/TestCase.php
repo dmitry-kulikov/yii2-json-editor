@@ -45,9 +45,6 @@ abstract class TestCase extends PHPUnit_Framework_TestCase
                     'id' => 'test-app',
                     'basePath' => __DIR__,
                     'components' => [
-                        'assetManager' => [
-                            'linkAssets' => true,
-                        ],
                         'request' => [
                             'scriptFile' => static::getTestsRuntimePath() . '/index.php',
                             'scriptUrl' => '/index.php',
