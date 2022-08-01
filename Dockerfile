@@ -44,7 +44,11 @@ RUN --mount=type=cache,id=composer,target=/root/.composer/cache,sharing=locked \
     # for example git+ssh://git@github.com/garycourt/uri-js.git,
     # but it requires SSH key linked with GitHub account which we have not in Docker;
     && git config --global --add url.'https://'.insteadOf 'git+ssh://git@' \
-    # 2) plugin may ask Git to clone repository using "git" protocol,
+    # 2) plugin may ask Git to clone repository using "git+https" protocol,
+    # for example git+https://github.com/vibornoff/asmcrypto.js,
+    # but it is not supported by Git which we have in Docker;
+    && git config --global --add url.'https://'.insteadOf 'git+https://' \
+    # 3) plugin may ask Git to clone repository using "git" protocol,
     # but the unencrypted "git" protocol is permanently disabled on GitHub,
     # see https://github.blog/changelog/2022-03-15-removed-unencrypted-git-protocol-and-certain-ssh-keys.
     && git config --global --add url.'https://github.com/'.insteadOf 'git@github.com:' \
@@ -77,7 +81,11 @@ RUN --mount=type=cache,id=composer,target=/root/.composer/cache,sharing=locked \
     # for example git+ssh://git@github.com/garycourt/uri-js.git,
     # but it requires SSH key linked with GitHub account which we have not in Docker;
     && git config --global --add url.'https://'.insteadOf 'git+ssh://git@' \
-    # 2) plugin may ask Git to clone repository using "git" protocol,
+    # 2) plugin may ask Git to clone repository using "git+https" protocol,
+    # for example git+https://github.com/vibornoff/asmcrypto.js,
+    # but it is not supported by Git which we have in Docker;
+    && git config --global --add url.'https://'.insteadOf 'git+https://' \
+    # 3) plugin may ask Git to clone repository using "git" protocol,
     # but the unencrypted "git" protocol is permanently disabled on GitHub,
     # see https://github.blog/changelog/2022-03-15-removed-unencrypted-git-protocol-and-certain-ssh-keys.
     && git config --global --add url.'https://github.com/'.insteadOf 'git@github.com:' \
