@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- attributes "beStrictAboutTestSize" and "checkForUnintentionallyCoveredCode" are used by old versions of PHPUnit -->
+<!--
+<phpunit> attributes:
+  beStrictAboutTestSize for PHPUnit < 5.0.0 (replaced by enforceTimeLimit)
+  checkForUnintentionallyCoveredCode for PHPUnit < 6.0.0 (replaced by beStrictAboutCoversAnnotation)
+-->
 <phpunit
         bootstrap="tests/bootstrap.php"
 
@@ -24,13 +28,15 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <!-- element "filter" is used by old versions of PHPUnit -->
+    <!-- <filter> deprecated since PHPUnit 9.3.0 (replaced by <coverage>) -->
     <filter>
         <whitelist>
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
-    <include>
-        <directory suffix=".php">src</directory>
-    </include>
+    <coverage>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </coverage>
 </phpunit>
