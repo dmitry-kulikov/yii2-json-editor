@@ -1,1 +1,1 @@
-style "standards/markdown/style.rb"
+style "#{File.dirname(__FILE__)}/standards/markdown/style.rb"
